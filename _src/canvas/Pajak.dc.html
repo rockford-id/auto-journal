@@ -81,7 +81,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="row g-3">
 <div class="col-12 col-xl-4">
 <section class="ds-section">
-<div class="ds-section-title"><i class="bi bi-inbox"></i> Antrian <span class="ds-section-meta">status_pajak = N</span></div>
+<div class="ds-section-title"><i class="bi bi-inbox"></i> Antrian <span class="ds-section-meta">cb_transaksi.valid_transaksi = N</span></div>
 <table class="ds-table ds-table-sm">
 <thead><tr><th>Voucher</th><th class="text-end">Diajukan</th></tr></thead>
 <tbody>
@@ -144,7 +144,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 </sc-if>
 
 <sc-if value="{{isTidak}}" hint-placeholder-val="{{false}}" data-panel="hasil:tidak">
-<div class="ds-alert ds-alert-success" style="margin-bottom: 14px"><i class="bi bi-check-circle"></i><div>Tidak ada baris yang ditambahkan. status_pajak tetap disimpan = Y sebagai bukti voucher sudah diperiksa.</div></div>
+<div class="ds-alert ds-alert-success" style="margin-bottom: 14px"><i class="bi bi-check-circle"></i><div>Tidak ada baris yang ditambahkan. cb_transaksi.valid_transaksi tetap diisi Y sebagai bukti voucher sudah diperiksa.</div></div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
 <div class="ds-stat-card"><div class="ds-stat-label">Diajukan</div><div class="ds-stat-value" style="font-size: 18px">18.630.000</div></div>
 <div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh</div><div class="ds-stat-value" style="font-size: 18px">0</div></div>
@@ -152,7 +152,8 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 </div>
 </sc-if>
 
-<div class="ds-form-footer" style="margin-top: 14px">
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 14px">Simpan Hasil Cek: baris PPh ditambahkan ke Auto Journal, lalu cb_transaksi.valid_transaksi diisi Y supaya Kasbank Entry bisa membayar.</div>
+<div class="ds-form-footer" style="margin-top: 8px">
 <button type="button" class="ds-btn ds-btn-ghost">Batal</button>
 <button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan Hasil Cek</span></button>
 </div>
