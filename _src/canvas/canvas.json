@@ -1,0 +1,20 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-10-19T10:45:00Z"},
+  "title": "Mockup Auto Journal",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Simulasi.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 2300, "title": "0 · Simulasi Alur (untuk tim)", "expand": "fill", "is_interactive": true},
+    "Main.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 1150, "title": "1 · Monitor Sinkronisasi", "expand": "fill", "is_interactive": true},
+    "Detail.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1350, "title": "2 · Detail Jurnal", "expand": "fill", "is_interactive": true},
+    "Pajak.dc.html": {"x": 4560, "y": 0, "w": 1440, "h": 1300, "title": "3 · Pemeriksaan Pajak", "expand": "fill", "is_interactive": true},
+    "Tagihan.dc.html": {"x": 6080, "y": 0, "w": 1440, "h": 1350, "title": "4 · Tagihan Menunggu Bayar", "expand": "fill", "is_interactive": true},
+    "Parameter.dc.html": {"x": 7600, "y": 0, "w": 1440, "h": 1050, "title": "5 · Master Parameter", "expand": "fill", "is_interactive": true}
+  },
+  "order": ["Simulasi.dc.html", "Main.dc.html", "Detail.dc.html", "Pajak.dc.html", "Tagihan.dc.html", "Parameter.dc.html"],
+  "notes": {
+    "judul": {"x": 0, "y": -300, "text": "Auto Journal (Fintegra) — mockup layar", "kind": "title1", "maxW": 9040}
+  },
+  "designSystems": []
+}

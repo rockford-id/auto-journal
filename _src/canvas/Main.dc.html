@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Monitor Sinkronisasi — Auto Journal</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/d4be07ed8fbcf787a3e693a936195e05">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
+</style>
+</helmet>
+<div class="{{wrapperClass}}" id="smra-wrapper">
+<aside class="main-sidebar">
+<a href="Main.dc.html" class="sidebar-brand">
+<div class="brand-logo-wrap"><img src="/_blob/b744179f0804797cd156de08bb6aae89" alt="Summarecon" style="width: 24px; height: 24px; object-fit: contain"></div>
+<div class="brand-label"><div class="brand-name">Portal</div><div class="brand-tagline">Summarecon</div></div>
+</a>
+<div class="sidebar-search">
+<div class="sidebar-search-box"><i class="bi bi-search"></i><input type="search" class="sidebar-search-input" placeholder="Cari menu..." aria-label="Cari menu"></div>
+</div>
+<div class="sidebar-nav-wrap">
+<nav>
+<ul class="nav nav-sidebar flex-column">
+<li class="nav-item has-treeview menu-open">
+<a href="Main.dc.html" class="nav-link ancestor-active"><i class="bi bi-folder nav-icon"></i><p>Auto Journal<i class="right bi bi-caret-left-fill"></i></p></a>
+<ul class="nav nav-treeview">
+<li class="nav-item"><a href="Simulasi.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Simulasi Alur</p></a></li>
+<li class="nav-item"><a href="Main.dc.html" class="nav-link active"><i class="bi bi-dot nav-icon"></i><p>Monitor Sinkronisasi</p></a></li>
+<li class="nav-item"><a href="Pajak.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Pemeriksaan Pajak</p></a></li>
+<li class="nav-item"><a href="Tagihan.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Tagihan Menunggu Bayar</p></a></li>
+<li class="nav-item"><a href="Parameter.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Master Parameter</p></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="sidebar-bottom"><a href="#" class="nav-link" aria-label="Kembali ke Portal Lama"><i class="bi bi-arrow-left nav-icon"></i><p>Portal Lama</p></a></div>
+</aside>
+
+<div class="content-wrapper-offset">
+<nav class="main-header">
+<div class="header-left">
+<button class="btn-icon" type="button" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+<div class="crumb"><a href="Main.dc.html">Auto Journal</a><span class="crumb-sep">▸</span><b>Monitor Sinkronisasi</b></div>
+</div>
+<div class="header-right">
+<a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
+<span class="unit-pill-icon">SK</span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
+</a>
+<button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
+<button class="btn-icon" type="button" aria-label="Ganti tema"><i class="bi bi-moon-stars"></i></button>
+<div class="header-divider"></div>
+<div class="user-avatar-wrap"><div class="user-avatar">UF</div><span class="user-name">User Finance</span><i class="bi bi-chevron-down user-caret"></i></div>
+</div>
+</nav>
+
+<div class="content-wrapper ds-content">
+<div class="ds-page-header">
+<div class="ds-page-title">
+<h1>Monitor Sinkronisasi Jurnal</h1>
+<div class="ds-page-subtitle">Jurnal rute langsung ke GL (aj_jurnal_hdr), mis. GR dan amortisasi. Voucher yang dijurnal Kasbank (COP, reimbursement) dipantau di Tagihan Menunggu Bayar.</div>
+</div>
+<div class="ds-page-actions">
+<button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari no. reff / no. bukti…</span></button>
+<div class="ds-btn-bar">
+<button class="ds-btn" type="button"><i class="bi bi-arrow-repeat"></i><span>Muat Ulang</span></button>
+<button class="ds-btn ds-btn-primary" type="button" onClick="{{retryAll}}"><i class="bi bi-arrow-clockwise"></i><span>Retry Semua Error</span></button>
+</div>
+</div>
+</div>
+
+<div class="row g-3" style="margin-bottom: 14px">
+<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Belum Sync (N)</div><div class="ds-stat-value">3</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">menunggu dikirim</div></div></div>
+<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Terposting (Y)</div><div class="ds-stat-value">3</div><div class="ds-stat-delta" style="color: var(--t-success)">terkunci, tidak bisa diubah</div></div></div>
+<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Error (E)</div><div class="ds-stat-value" style="color: var(--t-danger)">2</div><div class="ds-stat-delta" style="color: var(--t-danger)">perlu ditindaklanjuti</div></div></div>
+<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Rincian Belum Dibayar</div><div class="ds-stat-value">12</div><div class="ds-stat-delta"><a href="Tagihan.dc.html">Lihat tagihan</a></div></div></div>
+</div>
+
+<sc-if value="{{retryMsg}}" hint-placeholder-val="{{false}}">
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-info-circle"></i><div>{{retryMsg}}</div></div>
+</sc-if>
+
+<div class="ds-alert ds-alert-danger" role="alert" style="margin-bottom: 12px"><i class="bi bi-exclamation-octagon"></i><div><strong>2 jurnal gagal dikirim ke GL.</strong> sync_count naik setiap retry. Saat ini hanya waktu error terakhir yang tercatat (sync_last_error), belum ada pesan penyebabnya.</div></div>
+
+<div class="ds-toolbar">
+<select class="ds-input" style="width: 160px" aria-label="Periode"><option>Oktober 2026</option><option>September 2026</option></select>
+<select class="ds-input" style="width: 200px" aria-label="Aplikasi"><option>Semua aplikasi</option><option>SIPP · GR</option><option>SIPP · AMOR</option></select>
+<div class="ds-toolbar-divider"></div>
+<ul class="ds-tabs" role="tablist" style="margin: 0">
+<li><button type="button" class="{{tabAll}}" onClick="{{showAll}}" data-tab="status:ALL" data-default="1">Semua · 8</button></li>
+<li><button type="button" class="{{tabN}}" onClick="{{showN}}" data-tab="status:N">Belum · 3</button></li>
+<li><button type="button" class="{{tabY}}" onClick="{{showY}}" data-tab="status:Y">Terposting · 3</button></li>
+<li><button type="button" class="{{tabE}}" onClick="{{showE}}" data-tab="status:E">Error · 2</button></li>
+</ul>
+</div>
+
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-journal-text"></i> Jurnal <span class="ds-section-meta">aj_jurnal_hdr · Oktober 2026</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 1050px">
+<thead>
+<tr><th>No. Reff</th><th>Tgl Reff</th><th>Aplikasi · Tipe</th><th>Unit</th><th class="text-end">Total Debit</th><th class="text-end">Total Kredit</th><th>Status</th><th class="text-end">Sync ke-</th><th>Error Terakhir</th><th>No. Bukti</th><th>Aksi</th></tr>
+</thead>
+<tbody>
+<tr hidden="{{hide.y}}" data-row="status:Y"><td><a href="Detail.dc.html" style="font-weight: 600">GR-2026-000123</a></td><td>15-10-2026</td><td>SIPP · GR</td><td>SKGM</td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td><td><span class="ds-badge ds-badge-success"><i class="bi bi-lock-fill"></i> Terposting</span></td><td class="text-end">1</td><td>—</td><td>JV-2610-0412</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+<tr hidden="{{hide.n}}" data-row="status:N"><td><a href="Detail.dc.html" style="font-weight: 600">GR-2026-000124</a></td><td>16-10-2026</td><td>SIPP · GR</td><td>SKGM</td><td class="text-end">8.880.000</td><td class="text-end">8.880.000</td><td><span class="ds-badge ds-badge-warning">Belum sync</span></td><td class="text-end">0</td><td>—</td><td>—</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+<tr hidden="{{hide.y}}" data-row="status:Y"><td><a href="Detail.dc.html" style="font-weight: 600">AMR-2026-0031</a></td><td>16-10-2026</td><td>SIPP · AMOR</td><td>SKGM</td><td class="text-end">4.500.000</td><td class="text-end">4.500.000</td><td><span class="ds-badge ds-badge-success"><i class="bi bi-lock-fill"></i> Terposting</span></td><td class="text-end">1</td><td>—</td><td>JV-2610-0415</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+<tr hidden="{{hide.e}}" data-row="status:E"><td><a href="Detail.dc.html" style="font-weight: 600">GR-2026-000127</a></td><td>17-10-2026</td><td>SIPP · GR</td><td>SKGM</td><td class="text-end">2.750.000</td><td class="text-end">2.750.000</td><td><span class="ds-badge ds-badge-danger">Error</span></td><td class="text-end">3</td><td>19-10-2026 08:41</td><td>—</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-secondary" onClick="{{retryA}}"><i class="bi bi-arrow-clockwise"></i><span>Retry</span></button></td></tr>
+<tr hidden="{{hide.n}}" data-row="status:N"><td><a href="Detail.dc.html" style="font-weight: 600">AMR-2026-0033</a></td><td>17-10-2026</td><td>SIPP · AMOR</td><td>SKGM</td><td class="text-end">1.215.000</td><td class="text-end">1.215.000</td><td><span class="ds-badge ds-badge-warning">Belum sync</span></td><td class="text-end">0</td><td>—</td><td>—</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+<tr hidden="{{hide.e}}" data-row="status:E"><td><a href="Detail.dc.html" style="font-weight: 600">GR-2026-000125</a></td><td>18-10-2026</td><td>SIPP · GR</td><td>SKGM</td><td class="text-end">55.500.000</td><td class="text-end">55.500.000</td><td><span class="ds-badge ds-badge-danger">Error</span></td><td class="text-end">2</td><td>19-10-2026 07:15</td><td>—</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-secondary" onClick="{{retryB}}"><i class="bi bi-arrow-clockwise"></i><span>Retry</span></button></td></tr>
+<tr hidden="{{hide.n}}" data-row="status:N"><td><a href="Detail.dc.html" style="font-weight: 600">GR-2026-000126</a></td><td>18-10-2026</td><td>SIPP · GR</td><td>SKGM</td><td class="text-end">13.320.000</td><td class="text-end">13.320.000</td><td><span class="ds-badge ds-badge-warning">Belum sync</span></td><td class="text-end">0</td><td>—</td><td>—</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+<tr hidden="{{hide.y}}" data-row="status:Y"><td><a href="Detail.dc.html" style="font-weight: 600">AMR-2026-0032</a></td><td>18-10-2026</td><td>SIPP · AMOR</td><td>SKGM</td><td class="text-end">4.500.000</td><td class="text-end">4.500.000</td><td><span class="ds-badge ds-badge-success"><i class="bi bi-lock-fill"></i> Terposting</span></td><td class="text-end">1</td><td>—</td><td>JV-2610-0421</td><td><a href="Detail.dc.html" class="ds-btn ds-btn-sm ds-btn-ghost">Detail</a></td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top: 10px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 12px; color: var(--t-text-muted)">Menampilkan <span data-count="status">{{shown}}</span> dari 8 jurnal</span>
+<div class="ds-pagination">
+<button class="ds-page-btn" type="button" aria-label="Halaman sebelumnya"><i class="bi bi-chevron-left"></i></button>
+<input class="ds-page-input" type="number" value="1" min="1" aria-label="Halaman">
+<span class="ds-page-label">1 / 1</span>
+<button class="ds-page-btn" type="button" aria-label="Halaman berikutnya"><i class="bi bi-chevron-right"></i></button>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="main-footer"><span>Copyright © 2026 PT. Summarecon Agung Tbk · Portal v3</span></footer>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tema":{"editor":"enum","options":["light","dark","warm"],"default":"light"},"$preview":{"width":1440,"height":1150}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'ALL', retryMsg: '' };
+  }
+  renderVals() {
+    const tema = this.props.tema ?? 'light';
+    const f = this.state.filter;
+    const tab = (k) => (f === k ? 'ds-tabs-link is-active' : 'ds-tabs-link');
+    const counts = { ALL: 8, N: 3, Y: 3, E: 2 };
+    return {
+      wrapperClass: tema === 'light' ? 'wrapper' : 'wrapper ' + tema,
+      tabAll: tab('ALL'), tabN: tab('N'), tabY: tab('Y'), tabE: tab('E'),
+      showAll: () => this.setState({ filter: 'ALL' }),
+      showN: () => this.setState({ filter: 'N' }),
+      showY: () => this.setState({ filter: 'Y' }),
+      showE: () => this.setState({ filter: 'E' }),
+      hide: {
+        n: !(f === 'ALL' || f === 'N'),
+        y: !(f === 'ALL' || f === 'Y'),
+        e: !(f === 'ALL' || f === 'E')
+      },
+      shown: counts[f],
+      retryMsg: this.state.retryMsg,
+      retryA: () => this.setState({ retryMsg: 'GR-2026-000127 dijadwalkan kirim ulang ke GL (percobaan ke-4).' }),
+      retryB: () => this.setState({ retryMsg: 'GR-2026-000125 dijadwalkan kirim ulang ke GL (percobaan ke-3).' }),
+      retryAll: () => this.setState({ retryMsg: '2 jurnal error dijadwalkan kirim ulang ke GL.' })
+    };
+  }
+}
+</script>
+</body>
+</html>

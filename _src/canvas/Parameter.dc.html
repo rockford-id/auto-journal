@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Master Parameter — Auto Journal</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="/_blob/d4be07ed8fbcf787a3e693a936195e05">
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
+</style>
+</helmet>
+<div class="{{wrapperClass}}" id="smra-wrapper">
+<aside class="main-sidebar">
+<a href="Main.dc.html" class="sidebar-brand">
+<div class="brand-logo-wrap"><img src="/_blob/b744179f0804797cd156de08bb6aae89" alt="Summarecon" style="width: 24px; height: 24px; object-fit: contain"></div>
+<div class="brand-label"><div class="brand-name">Portal</div><div class="brand-tagline">Summarecon</div></div>
+</a>
+<div class="sidebar-search">
+<div class="sidebar-search-box"><i class="bi bi-search"></i><input type="search" class="sidebar-search-input" placeholder="Cari menu..." aria-label="Cari menu"></div>
+</div>
+<div class="sidebar-nav-wrap">
+<nav>
+<ul class="nav nav-sidebar flex-column">
+<li class="nav-item has-treeview menu-open">
+<a href="Main.dc.html" class="nav-link ancestor-active"><i class="bi bi-folder nav-icon"></i><p>Auto Journal<i class="right bi bi-caret-left-fill"></i></p></a>
+<ul class="nav nav-treeview">
+<li class="nav-item"><a href="Simulasi.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Simulasi Alur</p></a></li>
+<li class="nav-item"><a href="Main.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Monitor Sinkronisasi</p></a></li>
+<li class="nav-item"><a href="Pajak.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Pemeriksaan Pajak</p></a></li>
+<li class="nav-item"><a href="Tagihan.dc.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Tagihan Menunggu Bayar</p></a></li>
+<li class="nav-item"><a href="Parameter.dc.html" class="nav-link active"><i class="bi bi-dot nav-icon"></i><p>Master Parameter</p></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="sidebar-bottom"><a href="#" class="nav-link" aria-label="Kembali ke Portal Lama"><i class="bi bi-arrow-left nav-icon"></i><p>Portal Lama</p></a></div>
+</aside>
+
+<div class="content-wrapper-offset">
+<nav class="main-header">
+<div class="header-left">
+<button class="btn-icon" type="button" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+<div class="crumb"><a href="Main.dc.html">Auto Journal</a><span class="crumb-sep">▸</span><b>Master Parameter</b></div>
+</div>
+<div class="header-right">
+<a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
+<span class="unit-pill-icon">SK</span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
+</a>
+<button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
+<button class="btn-icon" type="button" aria-label="Ganti tema"><i class="bi bi-moon-stars"></i></button>
+<div class="header-divider"></div>
+<div class="user-avatar-wrap"><div class="user-avatar">UF</div><span class="user-name">User Finance</span><i class="bi bi-chevron-down user-caret"></i></div>
+</div>
+</nav>
+
+<div class="content-wrapper ds-content">
+<div class="ds-page-header">
+<div class="ds-page-title">
+<h1>Master Parameter</h1>
+<div class="ds-page-subtitle">Aturan routing per aplikasi + tipe, tipe jurnal, dan sub tipe jurnal</div>
+</div>
+<div class="ds-page-actions">
+<button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari parameter…</span></button>
+<div class="ds-btn-bar">
+<button class="ds-btn" type="button"><i class="bi bi-plus-lg"></i><span>Tambah</span></button>
+<button class="ds-btn ds-btn-primary" type="button"><i class="bi bi-check2"></i><span>Simpan</span></button>
+<button class="ds-btn ds-btn-danger" type="button"><i class="bi bi-trash"></i><span>Hapus</span></button>
+</div>
+</div>
+</div>
+
+<ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
+<li><button type="button" class="{{tabRouting}}" onClick="{{showRouting}}" data-tab="param:routing" data-default="1">Routing (aj_voucher_param)</button></li>
+<li><button type="button" class="{{tabTipe}}" onClick="{{showTipe}}" data-tab="param:tipe">Tipe Jurnal</button></li>
+<li><button type="button" class="{{tabSub}}" onClick="{{showSub}}" data-tab="param:sub">Sub Tipe Jurnal</button></li>
+</ul>
+
+<div class="row g-3">
+<div class="col-12 col-xl-8">
+
+<sc-if value="{{isRouting}}" hint-placeholder-val="{{true}}" data-panel="param:routing">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-signpost-split"></i> Routing per aplikasi + tipe <span class="ds-section-meta">1 aturan per app + tipe</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 640px">
+<thead><tr><th>Aplikasi</th><th>Tipe</th><th>Wajib Cek Pajak (fg_pph)</th><th>Ada Bank (fg_bank)</th><th>Tujuan</th><th>Aksi</th></tr></thead>
+<tbody>
+<tr><td>SIPP</td><td>GR</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-info">GL</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td>SIPP</td><td>AMOR</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-info">GL</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">SIPP</td><td style="font-weight: 600">COP</td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-brand">TAX</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td>Cash Advance</td><td>CA</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-success">CB</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td>Reimbursement</td><td>RB</td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-brand">TAX</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isTipe}}" hint-placeholder-val="{{false}}" data-panel="param:tipe">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-tags"></i> Tipe jurnal <span class="ds-section-meta">aj_jurnal_tipe</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 560px">
+<thead><tr><th>Tipe</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr></thead>
+<tbody>
+<tr><td style="font-weight: 600">ACC</td><td>Akun umum (biaya, persediaan, hutang)</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">BANK</td><td>Baris kas / bank, diproses Kasbank</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">PPN</td><td>Pajak pertambahan nilai</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">PPH</td><td>Pajak penghasilan, diproses Pajak</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSub}}" hint-placeholder-val="{{false}}" data-panel="param:sub">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-diagram-2"></i> Sub tipe jurnal <span class="ds-section-meta">aj_jurnal_sub_tipe · harus milik tipe induknya</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 560px">
+<thead><tr><th>Sub Tipe</th><th>Tipe Induk</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr></thead>
+<tbody>
+<tr><td style="font-weight: 600">PPN 11%</td><td>PPN</td><td>PPN tarif umum</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">PPN 10%</td><td>PPN</td><td>PPN tarif lama</td><td><span class="ds-badge ds-badge-neutral">Nonaktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">PPH 23</td><td>PPH</td><td>PPh pasal 23 atas jasa</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td style="font-weight: 600">PPH 21</td><td>PPH</td><td>PPh pasal 21</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">PPH FINAL</td><td>PPH</td><td>PPh final pasal 4 ayat 2</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</sc-if>
+
+</div>
+<div class="col-12 col-xl-4">
+
+<sc-if value="{{isRouting}}" hint-placeholder-val="{{true}}" data-panel="param:routing">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah routing</div>
+<div class="ds-form-stack">
+<div class="form-group"><label class="ds-label" for="p-app">Aplikasi <span class="ds-required">*</span></label><input id="p-app" class="ds-input" value="SIPP"></div>
+<div class="form-group"><label class="ds-label" for="p-tipe">Tipe <span class="ds-required">*</span></label><input id="p-tipe" class="ds-input" value="COP"><small class="ds-helper">Kombinasi aplikasi + tipe harus unik.</small></div>
+<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Wajib cek Pajak sebelum dibayar (fg_pph)</span></label></div>
+<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Ada baris bank (fg_bank)</span></label></div>
+<div class="form-group"><label class="ds-label" for="p-dest">Tujuan <span class="ds-required">*</span></label><select id="p-dest" class="ds-input"><option>TAX</option><option>CB</option><option>GL</option></select></div>
+</div>
+<div class="ds-form-footer">
+<button type="button" class="ds-btn ds-btn-ghost">Batal</button>
+<button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan</span></button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isTipe}}" hint-placeholder-val="{{false}}" data-panel="param:tipe">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah tipe jurnal</div>
+<div class="ds-form-stack">
+<div class="form-group"><label class="ds-label" for="t-kode">Tipe <span class="ds-required">*</span></label><input id="t-kode" class="ds-input" value="PPH" disabled><small class="ds-helper">Kode tidak bisa diubah karena dipakai di jurnal.</small></div>
+<div class="form-group"><label class="ds-label" for="t-desc">Deskripsi <span class="ds-required">*</span></label><input id="t-desc" class="ds-input" value="Pajak penghasilan, diproses Pajak"></div>
+<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
+</div>
+<div class="ds-form-footer">
+<button type="button" class="ds-btn ds-btn-ghost">Batal</button>
+<button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan</span></button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSub}}" hint-placeholder-val="{{false}}" data-panel="param:sub">
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah sub tipe</div>
+<div class="ds-form-stack">
+<div class="form-group"><label class="ds-label" for="s-kode">Sub Tipe <span class="ds-required">*</span></label><input id="s-kode" class="ds-input" value="PPH 23" disabled></div>
+<div class="form-group"><label class="ds-label" for="s-induk">Tipe Induk <span class="ds-required">*</span></label><select id="s-induk" class="ds-input"><option>PPH</option><option>PPN</option><option>ACC</option><option>BANK</option></select><small class="ds-helper">Baris jurnal dengan sub tipe ini wajib memakai tipe induk yang sama.</small></div>
+<div class="form-group"><label class="ds-label" for="s-desc">Deskripsi <span class="ds-required">*</span></label><input id="s-desc" class="ds-input" value="PPh pasal 23 atas jasa"></div>
+<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
+</div>
+<div class="ds-form-footer">
+<button type="button" class="ds-btn ds-btn-ghost">Batal</button>
+<button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan</span></button>
+</div>
+</section>
+</sc-if>
+
+</div>
+</div>
+</div>
+
+<footer class="main-footer"><span>Copyright © 2026 PT. Summarecon Agung Tbk · Portal v3</span></footer>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tema":{"editor":"enum","options":["light","dark","warm"],"default":"light"},"$preview":{"width":1440,"height":1050}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'routing' };
+  }
+  renderVals() {
+    const tema = this.props.tema ?? 'light';
+    const t = this.state.tab;
+    const tab = (k) => (t === k ? 'ds-tabs-link is-active' : 'ds-tabs-link');
+    return {
+      wrapperClass: tema === 'light' ? 'wrapper' : 'wrapper ' + tema,
+      tabRouting: tab('routing'), tabTipe: tab('tipe'), tabSub: tab('sub'),
+      isRouting: t === 'routing', isTipe: t === 'tipe', isSub: t === 'sub',
+      showRouting: () => this.setState({ tab: 'routing' }),
+      showTipe: () => this.setState({ tab: 'tipe' }),
+      showSub: () => this.setState({ tab: 'sub' })
+    };
+  }
+}
+</script>
+</body>
+</html>

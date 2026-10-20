@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Detail Jurnal — Auto Journal</title>
+<link rel="stylesheet" href="assets/portal-ui.css">
+</head>
+<body>
+<style>
+body{margin:0}
+a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
+</style>
+<div class="wrapper" id="smra-wrapper">
+<aside class="main-sidebar">
+<a href="index.html" class="sidebar-brand">
+<div class="brand-logo-wrap"><img src="assets/summarecon.png" alt="Summarecon" style="width: 24px; height: 24px; object-fit: contain"></div>
+<div class="brand-label"><div class="brand-name">Portal</div><div class="brand-tagline">Summarecon</div></div>
+</a>
+<div class="sidebar-search">
+<div class="sidebar-search-box"><i class="bi bi-search"></i><input type="search" class="sidebar-search-input" placeholder="Cari menu..." aria-label="Cari menu"></div>
+</div>
+<div class="sidebar-nav-wrap">
+<nav>
+<ul class="nav nav-sidebar flex-column">
+<li class="nav-item has-treeview menu-open">
+<a href="index.html" class="nav-link ancestor-active"><i class="bi bi-folder nav-icon"></i><p>Auto Journal<i class="right bi bi-caret-left-fill"></i></p></a>
+<ul class="nav nav-treeview">
+<li class="nav-item"><a href="simulasi.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Simulasi Alur</p></a></li>
+<li class="nav-item"><a href="index.html" class="nav-link active"><i class="bi bi-dot nav-icon"></i><p>Monitor Sinkronisasi</p></a></li>
+<li class="nav-item"><a href="pajak.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Pemeriksaan Pajak</p></a></li>
+<li class="nav-item"><a href="tagihan.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Tagihan Menunggu Bayar</p></a></li>
+<li class="nav-item"><a href="parameter.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Master Parameter</p></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="sidebar-bottom"><a href="#" class="nav-link" aria-label="Kembali ke Portal Lama"><i class="bi bi-arrow-left nav-icon"></i><p>Portal Lama</p></a></div>
+</aside>
+
+<div class="content-wrapper-offset">
+<nav class="main-header">
+<div class="header-left">
+<button class="btn-icon" type="button" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+<div class="crumb"><a href="index.html">Auto Journal</a><span class="crumb-sep">▸</span><a href="index.html">Monitor Sinkronisasi</a><span class="crumb-sep">▸</span><b>GR-2026-000123</b></div>
+</div>
+<div class="header-right">
+<a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
+<span class="unit-pill-icon">SK</span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
+</a>
+<button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
+<button class="btn-icon" type="button" aria-label="Ganti tema"><i class="bi bi-moon-stars"></i></button>
+<div class="header-divider"></div>
+<div class="user-avatar-wrap"><div class="user-avatar">UF</div><span class="user-name">User Finance</span><i class="bi bi-chevron-down user-caret"></i></div>
+</div>
+</nav>
+
+<div class="content-wrapper ds-content">
+<div class="ds-page-header">
+<div class="ds-page-title">
+<h1>GR-2026-000123 <span class="ds-badge ds-badge-success" style="vertical-align: middle"><i class="bi bi-lock-fill"></i> Terposting</span></h1>
+<div class="ds-page-subtitle">SIPP · GR · tujuan GL · no. bukti GL JV-2610-0412</div>
+</div>
+<div class="ds-page-actions">
+<a href="index.html" class="ds-btn ds-btn-ghost"><i class="bi bi-arrow-left"></i><span>Kembali</span></a>
+<div class="ds-btn-bar">
+<button class="ds-btn" type="button" disabled data-ds-tooltip="Jurnal sudah diposting, tidak bisa diubah"><i class="bi bi-pencil"></i><span>Ubah</span></button>
+<button class="ds-btn ds-btn-primary" type="button"><i class="bi bi-arrow-counterclockwise"></i><span>Buat Jurnal Balik</span></button>
+</div>
+</div>
+</div>
+
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-lock"></i><div><strong>Jurnal terkunci.</strong> Setelah sync_status = Y, header dan baris jurnal tidak bisa diubah, dihapus, atau ditambah. Koreksi dilakukan lewat jurnal balik + jurnal baru.</div></div>
+
+
+<div class="row g-3" style="margin-bottom: 14px">
+<div class="col-12 col-lg-7">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> Header jurnal <span class="ds-section-meta">aj_jurnal_hdr</span></div>
+<dl class="ds-dl">
+<dt>No. Reff</dt><dd>GR-2026-000123</dd>
+<dt>Tgl / Tahun Reff</dt><dd>15-10-2026 · 2026</dd>
+<dt>No. Bukti (GL)</dt><dd>JV-2610-0412</dd>
+<dt>Tgl / Tahun Bukti</dt><dd>15-10-2026 · 2026</dd>
+<dt>Unit (kd_unit)</dt><dd>SKGM</dd>
+<dt>Lokasi (kd_lokasi)</dt><dd>JJF3</dd>
+<dt>Kode internal</dt><dd>[kd_mst_unit] · [kd_sub_unit]</dd>
+<dt>Bank</dt><dd>—</dd>
+</dl>
+</section>
+</div>
+<div class="col-12 col-lg-5">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-arrow-repeat"></i> Sinkronisasi</div>
+<dl class="ds-dl">
+<dt>Status</dt><dd><span class="ds-badge ds-badge-success">Y · Terposting</span></dd>
+<dt>Sync ke-</dt><dd>1</dd>
+<dt>Waktu sync</dt><dd>15-10-2026 17:02</dd>
+<dt>Error terakhir</dt><dd>—</dd>
+</dl>
+<div style="margin-top: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+<div class="ds-stat-card"><div class="ds-stat-label">Debit</div><div class="ds-stat-value" style="font-size: 16px">22.200.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Kredit</div><div class="ds-stat-value" style="font-size: 16px">22.200.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Selisih</div><div class="ds-stat-value" style="font-size: 16px; color: var(--t-success)">0 <i class="bi bi-check-circle-fill"></i></div></div>
+</div>
+</section>
+</div>
+</div>
+
+<section class="ds-section">
+<ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
+<li><button type="button" class="ds-tabs-link" data-tab="detail:baris" data-default="1">Baris Jurnal · 3</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="detail:rincian">Rincian Subledger · 3 baris / 6 rincian</button></li>
+</ul>
+
+<div data-panel="detail:baris">
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 1050px">
+<thead>
+<tr><th>#</th><th>Tipe</th><th>Sub Tipe</th><th>No. COA</th><th>D/K</th><th>Mata Uang</th><th class="text-end">Kurs</th><th class="text-end">Jumlah Ori</th><th class="text-end">Jumlah</th><th>Proyek</th><th>Dept</th><th>Keterangan</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">20.000.000</td><td class="text-end">20.000.000</td><td>[proyek]</td><td>[dept]</td><td>Penerimaan material struktur</td></tr>
+<tr><td>2</td><td><span class="ds-badge ds-badge-info">PPN</span></td><td>PPN 11%</td><td>1-150-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">2.200.000</td><td class="text-end">2.200.000</td><td>[proyek]</td><td>[dept]</td><td>PPN masukan GR</td></tr>
+<tr><td>3</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>2-110-05</td><td>K</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td><td>[proyek]</td><td>[dept]</td><td>Hutang GR belum ditagih</td></tr>
+</tbody>
+<tfoot>
+<tr style="font-weight: 600"><td colspan="8">Total Debit / Kredit</td><td class="text-end">22.200.000 / 22.200.000</td><td colspan="3"><span class="ds-badge ds-badge-success">Balance</span></td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+
+<div data-panel="detail:rincian">
+<div class="ds-alert ds-alert-success" role="status" style="margin-bottom: 12px"><i class="bi bi-check-circle"></i><div><strong>Tie-out cocok.</strong> Total rincian per baris subledger = nilai baris subledger, dan total rincian yang tertaut ke tiap baris jurnal = nilai baris jurnal itu (dijumlah bertanda, D + / K −).</div></div>
+<div style="overflow-x: auto">
+<table class="ds-table" style="min-width: 1050px">
+<thead>
+<tr><th>Baris Subledger / Rincian</th><th>Tipe</th><th>D/K</th><th class="text-end">Jumlah</th><th>Tertaut ke Jurnal</th><th>Tie-out</th></tr>
+</thead>
+<tbody>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · ACC</td><td>ACC</td><td>D</td><td class="text-end">20.000.000</td><td>Baris #1 · 1-130-01</td><td><span class="ds-badge ds-badge-success">20.000.000 = 20.000.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>ACC</td><td>D</td><td class="text-end">12.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>ACC</td><td>D</td><td class="text-end">8.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · PPN 11%</td><td>PPN</td><td>D</td><td class="text-end">2.200.000</td><td>Baris #2 · 1-150-01</td><td><span class="ds-badge ds-badge-success">2.200.000 = 2.200.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PPN</td><td>D</td><td class="text-end">1.320.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PPN</td><td>D</td><td class="text-end">880.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · ACC</td><td>ACC</td><td>K</td><td class="text-end">22.200.000</td><td>Baris #3 · 2-110-05</td><td><span class="ds-badge ds-badge-success">22.200.000 = 22.200.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>ACC</td><td>K</td><td class="text-end">13.320.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>ACC</td><td>K</td><td class="text-end">8.880.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="main-footer"><span>Copyright © 2026 PT. Summarecon Agung Tbk · Portal v3</span></footer>
+</div>
+</div>
+<script src="assets/mockup.js"></script>
+</body>
+</html>

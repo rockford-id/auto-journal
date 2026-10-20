@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulasi Alur — Auto Journal</title>
+<link rel="stylesheet" href="assets/portal-ui.css">
+</head>
+<body>
+<style>
+body{margin:0}
+a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
+</style>
+<div class="wrapper" id="smra-wrapper">
+<aside class="main-sidebar">
+<a href="index.html" class="sidebar-brand">
+<div class="brand-logo-wrap"><img src="assets/summarecon.png" alt="Summarecon" style="width: 24px; height: 24px; object-fit: contain"></div>
+<div class="brand-label"><div class="brand-name">Portal</div><div class="brand-tagline">Summarecon</div></div>
+</a>
+<div class="sidebar-search">
+<div class="sidebar-search-box"><i class="bi bi-search"></i><input type="search" class="sidebar-search-input" placeholder="Cari menu..." aria-label="Cari menu"></div>
+</div>
+<div class="sidebar-nav-wrap">
+<nav>
+<ul class="nav nav-sidebar flex-column">
+<li class="nav-item has-treeview menu-open">
+<a href="index.html" class="nav-link ancestor-active"><i class="bi bi-folder nav-icon"></i><p>Auto Journal<i class="right bi bi-caret-left-fill"></i></p></a>
+<ul class="nav nav-treeview">
+<li class="nav-item"><a href="simulasi.html" class="nav-link active"><i class="bi bi-dot nav-icon"></i><p>Simulasi Alur</p></a></li>
+<li class="nav-item"><a href="index.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Monitor Sinkronisasi</p></a></li>
+<li class="nav-item"><a href="pajak.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Pemeriksaan Pajak</p></a></li>
+<li class="nav-item"><a href="tagihan.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Tagihan Menunggu Bayar</p></a></li>
+<li class="nav-item"><a href="parameter.html" class="nav-link"><i class="bi bi-dot nav-icon"></i><p>Master Parameter</p></a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+<div class="sidebar-bottom"><a href="#" class="nav-link" aria-label="Kembali ke Portal Lama"><i class="bi bi-arrow-left nav-icon"></i><p>Portal Lama</p></a></div>
+</aside>
+
+<div class="content-wrapper-offset">
+<nav class="main-header">
+<div class="header-left">
+<button class="btn-icon" type="button" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
+<div class="crumb"><a href="index.html">Auto Journal</a><span class="crumb-sep">▸</span><b>Simulasi Alur</b></div>
+</div>
+<div class="header-right">
+<a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
+<span class="unit-pill-icon">SK</span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
+</a>
+<button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
+<button class="btn-icon" type="button" aria-label="Ganti tema"><i class="bi bi-moon-stars"></i></button>
+<div class="header-divider"></div>
+<div class="user-avatar-wrap"><div class="user-avatar">UF</div><span class="user-name">User Finance</span><i class="bi bi-chevron-down user-caret"></i></div>
+</div>
+</nav>
+
+<div class="content-wrapper ds-content">
+<div class="ds-page-header">
+<div class="ds-page-title">
+<h1>Simulasi Alur Auto Journal</h1>
+<div class="ds-page-subtitle">Contoh reimbursement RB-2026-01250 (unit SKGM) dari pengajuan user sampai masuk GL · bahan diskusi tim · semua angka contoh</div>
+</div>
+<div class="ds-page-actions">
+<a href="pajak.html" class="ds-btn ds-btn-secondary"><i class="bi bi-window"></i><span>Lihat Layar Pajak</span></a>
+<a href="tagihan.html" class="ds-btn ds-btn-secondary"><i class="bi bi-window"></i><span>Lihat Layar Tagihan</span></a>
+</div>
+</div>
+
+<section class="ds-section" style="margin-bottom: 14px">
+<div class="ds-section-title"><i class="bi bi-diagram-3"></i> Gambaran alur <span class="ds-section-meta">rute Reimbursement: Pajak → Kasbank → GL</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px">
+<div class="ds-stat-card" style="flex: 1 1 200px; min-width: 0">
+<div class="ds-stat-label">1 · Aplikasi Reimbursement</div>
+<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">User mengajukan detail biaya + PPN (user punya faktur pajak). Belum tahu ada PPh.</div>
+<div style="margin-top: 8px"><span class="ds-badge ds-badge-neutral">sumber APP</span></div>
+</div>
+<div style="display: flex; align-items: center; color: var(--t-text-faint)"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+<div class="ds-stat-card" style="flex: 1 1 200px; min-width: 0">
+<div class="ds-stat-label">2 · Bagian Pajak</div>
+<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">Menentukan ada/tidaknya PPh per detail. Menambah baris PPh + potongan pembayaran.</div>
+<div style="margin-top: 8px"><span class="ds-badge ds-badge-warning">sumber TAX</span></div>
+</div>
+<div style="display: flex; align-items: center; color: var(--t-text-faint)"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+<div class="ds-stat-card" style="flex: 1 1 200px; min-width: 0">
+<div class="ds-stat-label">3 · Kasbank Entry</div>
+<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">Membayar nilai bersih ke user, membuat BKK, mengisi jurnal_dtl_cb di setiap rincian.</div>
+<div style="margin-top: 8px"><span class="ds-badge ds-badge-info">jurnal_dtl_cb</span></div>
+</div>
+<div style="display: flex; align-items: center; color: var(--t-text-faint)"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
+<div class="ds-stat-card" style="flex: 1 1 200px; min-width: 0">
+<div class="ds-stat-label">4 · GL</div>
+<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">Kasbank memposting BKK ke GL. Sweep berkala mencocokkan Fintegra ↔ Kasbank.</div>
+<div style="margin-top: 8px"><span class="ds-badge ds-badge-success">sweep</span></div>
+</div>
+</div>
+<div class="row g-3" style="margin-top: 4px">
+<div class="col-12 col-lg-4"><div class="ds-alert ds-alert-info" style="height: 100%"><i class="bi bi-shield-lock"></i><div><strong>Data user tidak pernah diubah.</strong> PPh dari Pajak masuk sebagai baris BARU, sehingga pengajuan asli tetap terlihat.</div></div></div>
+<div class="col-12 col-lg-4"><div class="ds-alert ds-alert-info" style="height: 100%"><i class="bi bi-calculator"></i><div><strong>DPP dicatat, tidak dijurnal.</strong> Kaitan pajak ke biaya dasarnya disimpan di aj_jurnal_sl_dasar.</div></div></div>
+<div class="col-12 col-lg-4"><div class="ds-alert ds-alert-info" style="height: 100%"><i class="bi bi-cash-coin"></i><div><strong>Tidak bisa bayar sebelum dicek Pajak</strong>, dan satu rincian hanya bisa dibayar sekali.</div></div></div>
+</div>
+</section>
+
+<section class="ds-section" style="margin-bottom: 14px">
+<div class="ds-stepper">
+<div class="ds-step" data-step-item="tahap:1"><span class="ds-step-num">1</span> User mengajukan</div>
+<div class="ds-step" data-step-item="tahap:2"><span class="ds-step-num">2</span> Pajak memeriksa</div>
+<div class="ds-step" data-step-item="tahap:3"><span class="ds-step-num">3</span> Kasbank membayar</div>
+<div class="ds-step" data-step-item="tahap:4"><span class="ds-step-num">4</span> Posting GL &amp; sweep</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; margin: 12px 0 14px">
+<ul class="ds-tabs" role="tablist" style="margin: 0">
+<li><button type="button" class="ds-tabs-link" data-tab="tahap:1" data-default="1">Tahap 1</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="tahap:2">Tahap 2</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="tahap:3">Tahap 3</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="tahap:4">Tahap 4</button></li>
+</ul>
+<div style="display: flex; gap: 8px">
+<button type="button" class="ds-btn ds-btn-secondary" data-step="prev" data-step-group="tahap"><i class="bi bi-chevron-left"></i><span>Sebelumnya</span></button>
+<button type="button" class="ds-btn ds-btn-primary" data-step="next" data-step-group="tahap"><span>Berikutnya</span><i class="bi bi-chevron-right"></i></button>
+</div>
+</div>
+
+<div data-panel="tahap:1">
+<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-person"></i><div><strong>Tahap 1 — User mengajukan reimbursement lewat aplikasi Reimbursement.</strong> User tahu ada PPN (punya faktur pajak) sehingga mengirim baris PPN beserta dasarnya. User tidak tahu soal PPh, jadi tidak ada baris PPh. Karena parameter Reimbursement · RB punya fg_pph = Y, voucher wajib dicek Pajak dulu.</div></div>
+
+<div class="ds-section-title"><i class="bi bi-file-earmark"></i> aj_voucher <span class="ds-section-meta">header ringan, tanpa nominal</span></div>
+<div style="overflow-x: auto; margin-bottom: 18px">
+<table class="ds-table ds-table-sm" style="min-width: 900px">
+<thead><tr><th>voucher_hdr_id</th><th>app · tipe</th><th>kd_unit</th><th>kd_lokasi</th><th>no_voucher</th><th>voucher_id</th><th>status_pajak</th><th>tgl_cek_pajak</th><th>cek_pajak_oleh</th></tr></thead>
+<tbody><tr style="background: var(--t-info-bg)"><td>V1</td><td>Reimbursement · RB</td><td>SKGM</td><td>JJF3</td><td>RB-2026-01250</td><td>55021</td><td><span class="ds-badge ds-badge-warning">N · belum dicek</span></td><td>—</td><td>—</td></tr></tbody>
+</table>
+</div>
+
+<div class="ds-section-title"><i class="bi bi-list-ul"></i> aj_jurnal_sl <span class="ds-section-meta">7 baris dari user</span></div>
+<div style="overflow-x: auto; margin-bottom: 18px">
+<table class="ds-table ds-table-sm" style="min-width: 1000px">
+<thead><tr><th>sl</th><th>voucher_id_2</th><th>sumber</th><th>jurnal_tipe</th><th>sub_tipe</th><th>d_k</th><th>no_coa</th><th class="text-end">tarif</th><th class="text-end">dpp</th><th class="text-end">jumlah</th></tr></thead>
+<tbody>
+<tr style="background: var(--t-info-bg)"><td>sl-1</td><td>D1</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5-310-01 Konsultan</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">10.000.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-2</td><td>D2</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5-320-01 Sewa alat</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">5.000.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-3</td><td>D3</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5-330-01 ATK</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">2.000.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-4</td><td>D4</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5-340-01 Parkir &amp; tol</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">300.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-5</td><td>D5</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5-350-01 Meterai</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">10.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-6</td><td>—</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>PPN</td><td>PPN 12%</td><td>D</td><td>1-150-01 PPN Masukan</td><td class="text-end">12</td><td class="text-end">11.000.000</td><td class="text-end">1.320.000</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-7</td><td>—</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>BANK</td><td>—</td><td>K</td><td><em>dipilih Kasbank</em></td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">18.630.000</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="9">Total D / K</td><td class="text-end">18.630.000 / 18.630.000 <span class="ds-badge ds-badge-success">Balance</span></td></tr></tfoot>
+</table>
+</div>
+
+<div class="row g-3">
+<div class="col-12 col-xl-5">
+<div class="ds-section-title"><i class="bi bi-link-45deg"></i> aj_jurnal_sl_dasar <span class="ds-section-meta">dasar PPN, diisi user</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 420px">
+<thead><tr><th>pajak</th><th>dasar</th><th class="text-end">dpp</th></tr></thead>
+<tbody>
+<tr style="background: var(--t-info-bg)"><td>sl-6 PPN</td><td>sl-1 Konsultan</td><td class="text-end">9.166.667</td></tr>
+<tr style="background: var(--t-info-bg)"><td>sl-6 PPN</td><td>sl-3 ATK</td><td class="text-end">1.833.333</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="2">= dpp sl-6 · × 12% = 1.320.000</td><td class="text-end">11.000.000</td></tr></tfoot>
+</table>
+</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Parkir &amp; tol dan meterai tidak punya tautan = tidak kena pajak.</div>
+</div>
+<div class="col-12 col-xl-7">
+<div class="ds-section-title"><i class="bi bi-receipt"></i> aj_jurnal_sl_dtl <span class="ds-section-meta">rincian per bukti · min. 1 per baris sl</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 560px">
+<thead><tr><th>induk</th><th>voucher_reff</th><th>d_k</th><th class="text-end">dpp</th><th class="text-end">jumlah</th><th>jurnal_dtl_cb</th></tr></thead>
+<tbody>
+<tr><td>sl-1</td><td>INV-KS-0091</td><td>D</td><td class="text-end">0</td><td class="text-end">10.000.000</td><td>—</td></tr>
+<tr><td>sl-2</td><td>KW-0442</td><td>D</td><td class="text-end">0</td><td class="text-end">5.000.000</td><td>—</td></tr>
+<tr><td>sl-3</td><td>NOTA-7781</td><td>D</td><td class="text-end">0</td><td class="text-end">2.000.000</td><td>—</td></tr>
+<tr><td>sl-4</td><td>STRUK-TOL-10</td><td>D</td><td class="text-end">0</td><td class="text-end">300.000</td><td>—</td></tr>
+<tr><td>sl-5</td><td>MTR-01</td><td>D</td><td class="text-end">0</td><td class="text-end">10.000</td><td>—</td></tr>
+<tr><td>sl-6</td><td>[no. faktur pajak]</td><td>D</td><td class="text-end">11.000.000</td><td class="text-end">1.320.000</td><td>—</td></tr>
+<tr><td>sl-7</td><td>RB-2026-01250</td><td>K</td><td class="text-end">0</td><td class="text-end">18.630.000</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="ds-alert ds-alert-warning" style="margin-top: 14px"><i class="bi bi-hourglass-split"></i><div><strong>Hasil tahap 1:</strong> voucher masuk antrian Pemeriksaan Pajak. Kasbank Entry belum bisa membayar karena status_pajak = N.</div></div>
+</div>
+
+<div data-panel="tahap:2">
+<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-percent"></i><div><strong>Tahap 2 — Bagian Pajak memeriksa.</strong> Pajak menentukan jasa konsultan (sl-1) dan sewa alat (sl-2) kena PPh 23 sebesar 2%. Sistem MENAMBAH 2 baris bersumber TAX; 7 baris dari user tidak berubah. User tidak perlu diberi tahu: potongan langsung mengurangi nilai yang dibayar.</div></div>
+
+<div class="ds-section-title"><i class="bi bi-file-earmark"></i> aj_voucher <span class="ds-section-meta">status diperbarui</span></div>
+<div style="overflow-x: auto; margin-bottom: 18px">
+<table class="ds-table ds-table-sm" style="min-width: 900px">
+<thead><tr><th>voucher_hdr_id</th><th>no_voucher</th><th>status_pajak</th><th>tgl_cek_pajak</th><th>cek_pajak_oleh</th></tr></thead>
+<tbody><tr style="background: var(--t-warning-bg)"><td>V1</td><td>RB-2026-01250</td><td><span class="ds-badge ds-badge-success">Y · sudah dicek</span></td><td>21-10-2026 10:15</td><td>Staf Pajak</td></tr></tbody>
+</table>
+</div>
+
+<div class="ds-section-title"><i class="bi bi-list-ul"></i> aj_jurnal_sl <span class="ds-section-meta">7 baris user + 2 baris baru dari Pajak</span></div>
+<div style="overflow-x: auto; margin-bottom: 18px">
+<table class="ds-table ds-table-sm" style="min-width: 1000px">
+<thead><tr><th>sl</th><th>sumber</th><th>jurnal_tipe</th><th>sub_tipe</th><th>d_k</th><th>no_coa</th><th class="text-end">tarif</th><th class="text-end">dpp</th><th class="text-end">jumlah</th></tr></thead>
+<tbody>
+<tr><td>sl-1 … sl-5</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>ACC</td><td>—</td><td>D</td><td>5 akun biaya</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">17.310.000</td></tr>
+<tr><td>sl-6</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>PPN</td><td>PPN 12%</td><td>D</td><td>1-150-01 PPN Masukan</td><td class="text-end">12</td><td class="text-end">11.000.000</td><td class="text-end">1.320.000</td></tr>
+<tr><td>sl-7</td><td><span class="ds-badge ds-badge-neutral">APP</span></td><td>BANK</td><td>—</td><td>K</td><td><em>dipilih Kasbank</em></td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">18.630.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-8 <span class="ds-badge ds-badge-brand">baru</span></td><td><span class="ds-badge ds-badge-warning">TAX</span></td><td>PPH</td><td>PPH 23</td><td>K</td><td>2-130-23 Utang PPh 23</td><td class="text-end">2</td><td class="text-end">15.000.000</td><td class="text-end">300.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-9 <span class="ds-badge ds-badge-brand">baru</span></td><td><span class="ds-badge ds-badge-warning">TAX</span></td><td>BANK</td><td>—</td><td>D</td><td><em>dipilih Kasbank</em> · potongan PPh</td><td class="text-end">0</td><td class="text-end">0</td><td class="text-end">300.000</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="8">Total D / K</td><td class="text-end">18.930.000 / 18.930.000 <span class="ds-badge ds-badge-success">Balance</span></td></tr></tfoot>
+</table>
+</div>
+
+<div class="row g-3" style="margin-bottom: 14px">
+<div class="col-12 col-xl-6">
+<div class="ds-section-title"><i class="bi bi-link-45deg"></i> aj_jurnal_sl_dasar <span class="ds-section-meta">+2 baris dasar PPh</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 420px">
+<thead><tr><th>pajak</th><th>dasar</th><th class="text-end">dpp</th></tr></thead>
+<tbody>
+<tr><td>sl-6 PPN</td><td>sl-1 Konsultan</td><td class="text-end">9.166.667</td></tr>
+<tr><td>sl-6 PPN</td><td>sl-3 ATK</td><td class="text-end">1.833.333</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-8 PPh 23</td><td>sl-1 Konsultan</td><td class="text-end">10.000.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-8 PPh 23</td><td>sl-2 Sewa alat</td><td class="text-end">5.000.000</td></tr>
+</tbody>
+</table>
+</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Konsultan jadi dasar 2 pajak (PPN dan PPh 23). PPh 23: 15.000.000 × 2% = 300.000.</div>
+</div>
+<div class="col-12 col-xl-6">
+<div class="ds-section-title"><i class="bi bi-receipt"></i> aj_jurnal_sl_dtl <span class="ds-section-meta">+2 rincian baru</span></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 460px">
+<thead><tr><th>induk</th><th>voucher_reff</th><th>d_k</th><th class="text-end">dpp</th><th class="text-end">jumlah</th></tr></thead>
+<tbody>
+<tr><td colspan="5" style="color: var(--t-text-muted)">7 rincian dari tahap 1 tetap seperti semula</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-8</td><td>[no. bukti potong]</td><td>K</td><td class="text-end">15.000.000</td><td class="text-end">300.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>sl-9</td><td>RB-2026-01250</td><td>D</td><td class="text-end">0</td><td class="text-end">300.000</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div class="ds-stat-card"><div class="ds-stat-label">Diajukan user</div><div class="ds-stat-value">18.630.000</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">sl-7 BANK K</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh 23</div><div class="ds-stat-value" style="color: var(--t-danger)">− 300.000</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">sl-9 BANK D</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Dibayar ke user</div><div class="ds-stat-value" style="color: var(--t-success)">18.330.000</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">bersih</div></div>
+</div>
+<div class="ds-alert ds-alert-success" style="margin-top: 14px"><i class="bi bi-check-circle"></i><div><strong>Kalau ternyata tidak ada PPh:</strong> Pajak tetap menyimpan status_pajak = Y tanpa menambah baris, sehingga tercatat bahwa voucher sudah diperiksa (bukan terlewat). Nilai dibayar tetap 18.630.000.</div></div>
+</div>
+
+<div data-panel="tahap:3">
+<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-bank"></i><div><strong>Tahap 3 — Kasbank Entry membayar.</strong> Karena status_pajak = Y, voucher sudah boleh dibayar. Kasbank membuat BKK di sistemnya sendiri dan mengisi jurnal_dtl_cb pada setiap rincian. Reimbursement langsung dijurnal saat dibayar (tidak diakui sebagai hutang dulu).</div></div>
+
+<div class="ds-section-title"><i class="bi bi-journal-text"></i> Jurnal BKK-SKGM-2610-00120 <span class="ds-section-meta">di sistem Kasbank, bukan di Fintegra</span></div>
+<div style="overflow-x: auto; margin-bottom: 18px">
+<table class="ds-table ds-table-sm" style="min-width: 700px">
+<thead><tr><th>Baris</th><th>Akun</th><th class="text-end">Debit</th><th class="text-end">Kredit</th></tr></thead>
+<tbody>
+<tr><td>-01</td><td>5-310-01 Konsultan</td><td class="text-end">10.000.000</td><td></td></tr>
+<tr><td>-02</td><td>5-320-01 Sewa alat</td><td class="text-end">5.000.000</td><td></td></tr>
+<tr><td>-03</td><td>5-330-01 ATK</td><td class="text-end">2.000.000</td><td></td></tr>
+<tr><td>-04</td><td>5-340-01 Parkir &amp; tol</td><td class="text-end">300.000</td><td></td></tr>
+<tr><td>-05</td><td>5-350-01 Meterai</td><td class="text-end">10.000</td><td></td></tr>
+<tr><td>-06</td><td>1-150-01 PPN Masukan</td><td class="text-end">1.320.000</td><td></td></tr>
+<tr><td>-07</td><td>2-130-23 Utang PPh 23</td><td></td><td class="text-end">300.000</td></tr>
+<tr><td>-08</td><td>1-110-02 Bank</td><td></td><td class="text-end">18.330.000</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="2">Total</td><td class="text-end">18.630.000</td><td class="text-end">18.630.000 <span class="ds-badge ds-badge-success">Balance</span></td></tr></tfoot>
+</table>
+</div>
+
+<div class="ds-section-title"><i class="bi bi-receipt"></i> aj_jurnal_sl_dtl <span class="ds-section-meta">jurnal_dtl_cb diisi otomatis oleh Kasbank Entry</span></div>
+<div style="overflow-x: auto; margin-bottom: 14px">
+<table class="ds-table ds-table-sm" style="min-width: 760px">
+<thead><tr><th>induk</th><th>voucher_reff</th><th class="text-end">jumlah</th><th>jurnal_dtl_cb</th></tr></thead>
+<tbody>
+<tr><td>sl-1</td><td>INV-KS-0091</td><td class="text-end">D 10.000.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-01</td></tr>
+<tr><td>sl-2</td><td>KW-0442</td><td class="text-end">D 5.000.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-02</td></tr>
+<tr><td>sl-3</td><td>NOTA-7781</td><td class="text-end">D 2.000.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-03</td></tr>
+<tr><td>sl-4</td><td>STRUK-TOL-10</td><td class="text-end">D 300.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-04</td></tr>
+<tr><td>sl-5</td><td>MTR-01</td><td class="text-end">D 10.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-05</td></tr>
+<tr><td>sl-6</td><td>[no. faktur pajak]</td><td class="text-end">D 1.320.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-06</td></tr>
+<tr><td>sl-8</td><td>[no. bukti potong]</td><td class="text-end">K 300.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-07</td></tr>
+<tr><td>sl-7</td><td>RB-2026-01250</td><td class="text-end">K 18.630.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-08</td></tr>
+<tr><td>sl-9</td><td>RB-2026-01250</td><td class="text-end">D 300.000</td><td style="background: var(--t-success-bg)">CB-SKGM-2610-00120-08</td></tr>
+</tbody>
+</table>
+</div>
+<div class="row g-3">
+<div class="col-12 col-lg-6"><div class="ds-alert ds-alert-success" style="height: 100%"><i class="bi bi-check2-all"></i><div><strong>Tie-out baris bank -08:</strong> sl-7 (K 18.630.000) + sl-9 (D 300.000) = K 18.330.000, sama dengan baris bank di BKK. Dijumlah bertanda: D = +, K = −.</div></div></div>
+<div class="col-12 col-lg-6"><div class="ds-alert ds-alert-info" style="height: 100%"><i class="bi bi-shield-check"></i><div><strong>Anti bayar dobel:</strong> rincian yang sudah punya jurnal_dtl_cb hilang dari daftar Tagihan Menunggu Bayar dan tidak bisa ditautkan lagi.</div></div></div>
+</div>
+</div>
+
+<div data-panel="tahap:4">
+<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-journal-check"></i><div><strong>Tahap 4 — Posting ke GL dan sweep.</strong> Kasbank memposting BKK ke GL lewat alur yang sudah ada. Fintegra tidak membuat jurnal sendiri untuk voucher ini, jadi aj_jurnal_hdr / aj_jurnal_dtl tidak terisi.</div></div>
+
+<div class="row g-3" style="margin-bottom: 14px">
+<div class="col-12 col-lg-6">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-signpost-split"></i> Dua rute jurnal</div>
+<dl class="ds-dl">
+<dt>Langsung GL</dt><dd>Mis. GR, amortisasi. Fintegra membuat aj_jurnal_hdr/dtl, mengirim ke GL, rincian ditautkan lewat <strong>jurnal_dtl_id</strong>. <a href="detail.html">Lihat contoh GR</a></dd>
+<dt>Lewat Kasbank</dt><dd>Mis. reimbursement, COP. Jurnal dibuat Kasbank (BKK) saat bayar, rincian ditautkan lewat <strong>jurnal_dtl_cb</strong>. Simulasi ini.</dd>
+</dl>
+</section>
+</div>
+<div class="col-12 col-lg-6">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-arrow-repeat"></i> Sweep berkala <span class="ds-section-meta">Fintegra ↔ Kasbank (beda database)</span></div>
+<table class="ds-table ds-table-sm">
+<thead><tr><th>jurnal_dtl_cb</th><th>Ada di Kasbank</th><th>Nilai cocok</th></tr></thead>
+<tbody>
+<tr><td>CB-…-00120-01</td><td><span class="ds-badge ds-badge-success">Ya</span></td><td><span class="ds-badge ds-badge-success">10.000.000</span></td></tr>
+<tr><td>CB-…-00120-07</td><td><span class="ds-badge ds-badge-success">Ya</span></td><td><span class="ds-badge ds-badge-success">300.000</span></td></tr>
+<tr><td>CB-…-00120-08</td><td><span class="ds-badge ds-badge-success">Ya</span></td><td><span class="ds-badge ds-badge-success">18.330.000</span></td></tr>
+</tbody>
+</table>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Hasil: 9 dari 9 rincian cocok. Kalau baris BKK diubah/dihapus langsung di Kasbank, sweep menandai rincian ini sebagai tidak cocok.</div>
+</section>
+</div>
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<div class="ds-stat-card"><div class="ds-stat-label">Biaya</div><div class="ds-stat-value" style="font-size: 18px">17.310.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">PPN Masukan</div><div class="ds-stat-value" style="font-size: 18px">1.320.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Utang PPh 23</div><div class="ds-stat-value" style="font-size: 18px">300.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Keluar dari bank</div><div class="ds-stat-value" style="font-size: 18px">18.330.000</div></div>
+</div>
+</div>
+</section>
+
+<div class="row g-3">
+<div class="col-12 col-xl-7">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-shield-check"></i> Pengecekan otomatis selama alur</div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 520px">
+<thead><tr><th>Kapan</th><th>Yang dicek</th></tr></thead>
+<tbody>
+<tr><td>Data masuk (tahap 1)</td><td>Baris balance (D = K), PPN = DPP × tarif, dasar PPN hanya ke baris ACC, total rincian = baris sl</td></tr>
+<tr><td>Simpan cek pajak (tahap 2)</td><td>Baris TAX tetap balance, PPh = DPP × tarif, baris APP tidak berubah</td></tr>
+<tr><td>Bayar (tahap 3)</td><td>Ditolak bila status_pajak = N; satu rincian hanya bisa ditautkan sekali</td></tr>
+<tr><td>Sweep berkala (tahap 4)</td><td>Setiap jurnal_dtl_cb ada di Kasbank dan nilainya cocok</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<div class="col-12 col-xl-5">
+<section class="ds-section" style="height: 100%">
+<div class="ds-section-title"><i class="bi bi-question-circle"></i> Untuk diputuskan tim</div>
+<ol style="margin: 0; padding-left: 18px; font-size: 13px; color: var(--t-text); display: flex; flex-direction: column; gap: 8px">
+<li>Aplikasi pengirim harus mengirim tautan dasar PPN per detail (aj_jurnal_sl_dasar). Apakah aplikasi Reimbursement sudah menyimpan "kena PPN" per detail?</li>
+<li>sync_last_error bertipe timestamp: pesan error-nya disimpan di mana?</li>
+<li>thn_bukti wajib diisi, padahal no_bukti baru ada setelah posting: diisi apa sebelumnya?</li>
+</ol>
+</section>
+</div>
+</div>
+</div>
+
+<footer class="main-footer"><span>Copyright © 2026 PT. Summarecon Agung Tbk · Portal v3</span></footer>
+</div>
+</div>
+<script src="assets/mockup.js"></script>
+</body>
+</html>
