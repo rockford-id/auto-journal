@@ -84,7 +84,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div style="display: flex; align-items: center; color: var(--t-text-faint)"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
 <div class="ds-stat-card" style="flex: 1 1 200px; min-width: 0">
 <div class="ds-stat-label">2 · Bagian Pajak</div>
-<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">Menentukan ada/tidaknya PPh per detail. Menambah baris PPh + potongan pembayaran.</div>
+<div style="font-size: 13px; color: var(--t-text); margin-top: 6px">Di sistem Pajak (sudah ada): menentukan PPh per detail, mengirim baris PPh + potongan ke Auto Journal, lalu valid_transaksi = Y.</div>
 <div style="margin-top: 8px"><span class="ds-badge ds-badge-warning">sumber TAX</span></div>
 </div>
 <div style="display: flex; align-items: center; color: var(--t-text-faint)"><i class="bi bi-arrow-right" aria-hidden="true"></i></div>
@@ -133,8 +133,11 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-bank"></i> cb_transaksi <span class="ds-section-meta">tabel Kasbank yang sudah ada (websa) · status cek pajak</span></div>
 <div style="overflow-x: auto; margin-bottom: 18px">
 <table class="ds-table ds-table-sm" style="min-width: 900px">
-<thead><tr><th>source</th><th>no_reff</th><th>kd_unit</th><th>kd_lokasi</th><th class="text-end">jumlah</th><th>valid_transaksi</th><th>user_valid_transaksi</th><th>tgl_valid_transaksi</th></tr></thead>
-<tbody><tr style="background: var(--t-info-bg)"><td>[app Reimbursement]</td><td>RB-2026-01250</td><td>SKGM</td><td>JJF3</td><td class="text-end">18.630.000</td><td><span class="ds-badge ds-badge-warning">N · belum dicek</span></td><td>—</td><td>—</td></tr></tbody>
+<thead><tr><th>source</th><th>logic_1</th><th>no_transaksi</th><th>no_reff</th><th>kd_unit</th><th class="text-end">jumlah</th><th>valid_transaksi</th><th>user_valid_transaksi</th><th>tgl_valid_transaksi</th></tr></thead>
+<tbody>
+<tr style="background: var(--t-info-bg)"><td>Reimbursement</td><td>RB</td><td>55021</td><td>RB-2026-01250</td><td>SKGM</td><td class="text-end">18.630.000</td><td><span class="ds-badge ds-badge-warning">N · belum dicek</span></td><td>—</td><td>—</td></tr>
+<tr><td colspan="9" style="font-size: 12px; color: var(--t-text-muted)">Penghubung ke aj_jurnal_sl: source = app, logic_1 = tipe, no_transaksi = voucher_id, no_reff = no_voucher, kd_unit = kd_unit</td></tr>
+</tbody>
 </table>
 </div>
 
@@ -192,13 +195,13 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 </sc-if>
 
 <sc-if value="{{isT2}}" hint-placeholder-val="{{false}}" data-panel="tahap:2">
-<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-percent"></i><div><strong>Tahap 2 — Bagian Pajak memeriksa.</strong> Pajak menentukan jasa konsultan (sl-1) dan sewa alat (sl-2) kena PPh 23 sebesar 2%. Sistem MENAMBAH 2 baris bersumber TAX; 7 baris dari user tidak berubah. User tidak perlu diberi tahu: potongan langsung mengurangi nilai yang dibayar.</div></div>
+<div class="ds-alert ds-alert-info" style="margin-bottom: 14px"><i class="bi bi-percent"></i><div><strong>Tahap 2 — Bagian Pajak memeriksa di sistem Pajak (sudah ada).</strong> Pajak menentukan jasa konsultan (sl-1) dan sewa alat (sl-2) kena PPh 23 sebesar 2%. Sistem MENAMBAH 2 baris bersumber TAX; 7 baris dari user tidak berubah. User tidak perlu diberi tahu: potongan langsung mengurangi nilai yang dibayar.</div></div>
 
-<div class="ds-section-title"><i class="bi bi-bank"></i> cb_transaksi <span class="ds-section-meta">diisi otomatis saat Pajak menyimpan hasil cek di Auto Journal</span></div>
+<div class="ds-section-title"><i class="bi bi-bank"></i> cb_transaksi <span class="ds-section-meta">diisi sistem Pajak setelah hasil cek disimpan</span></div>
 <div style="overflow-x: auto; margin-bottom: 18px">
 <table class="ds-table ds-table-sm" style="min-width: 900px">
-<thead><tr><th>source</th><th>no_reff</th><th>valid_transaksi</th><th>user_valid_transaksi</th><th>tgl_valid_transaksi</th></tr></thead>
-<tbody><tr style="background: var(--t-warning-bg)"><td>[app Reimbursement]</td><td>RB-2026-01250</td><td><span class="ds-badge ds-badge-success">Y · sudah dicek</span></td><td>Staf Pajak</td><td>21-10-2026 10:15</td></tr></tbody>
+<thead><tr><th>source</th><th>logic_1</th><th>no_transaksi</th><th>no_reff</th><th>valid_transaksi</th><th>user_valid_transaksi</th><th>tgl_valid_transaksi</th></tr></thead>
+<tbody><tr style="background: var(--t-warning-bg)"><td>Reimbursement</td><td>RB</td><td>55021</td><td>RB-2026-01250</td><td><span class="ds-badge ds-badge-success">Y · sudah dicek</span></td><td>Staf Pajak</td><td>21-10-2026 10:15</td></tr></tbody>
 </table>
 </div>
 
@@ -360,8 +363,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-question-circle"></i> Untuk diputuskan tim</div>
 <ol style="margin: 0; padding-left: 18px; font-size: 13px; color: var(--t-text); display: flex; flex-direction: column; gap: 8px">
 <li>Aplikasi pengirim harus mengirim tautan dasar PPN per detail (aj_jurnal_sl_dasar). Apakah aplikasi Reimbursement sudah menyimpan "kena PPN" per detail?</li>
-<li>PPh hanya diinput di Auto Journal; kolom PPh di cb_transaksi tidak diinput manual lagi. Penghubung voucher ke baris cb_transaksi memakai kunci apa (source + no_reff?)</li>
-<li>Syarat boleh bayar cukup valid_transaksi = Y, atau cek_pajak ikut menentukan?</li>
+<li>Satu sumber PPh: PPh per detail dikirim sistem Pajak ke Auto Journal; kolom PPh di cb_transaksi (jenis_pph, persen_pph, pph) tidak diinput manual lagi?</li>
 <li>sync_last_error bertipe timestamp: pesan error-nya disimpan di mana?</li>
 <li>thn_bukti wajib diisi, padahal no_bukti baru ada setelah posting: diisi apa sebelumnya?</li>
 </ol>
