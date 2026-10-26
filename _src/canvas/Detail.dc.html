@@ -85,12 +85,13 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="row g-3" style="margin-bottom: 14px">
 <div class="col-12 col-lg-7">
 <section class="ds-section" style="height: 100%">
-<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> Header jurnal <span class="ds-section-meta">aj_jurnal_hdr</span></div>
+<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> Header jurnal <span class="ds-section-meta">aj_jurnal_hdr · voucher dari aj_voucher</span></div>
 <dl class="ds-dl">
+<dt>Voucher pengirim</dt><dd>GR-2026-000123 (voucher_no) · 88231 (voucher_key) · SIPP · GR</dd>
 <dt>No. Reff</dt><dd>GR-2026-000123</dd>
 <dt>Tgl / Tahun Reff</dt><dd>15-10-2026 · 2026</dd>
 <dt>No. Bukti (GL)</dt><dd>JV-2610-0412</dd>
-<dt>Tgl / Tahun Bukti</dt><dd>15-10-2026 · 2026</dd>
+<dt>Tgl / Tahun Bukti</dt><dd>15-10-2026 · 2026 <span style="font-size: 12px; color: var(--t-text-muted)">diisi bersamaan dengan status Y</span></dd>
 <dt>Unit (kd_unit)</dt><dd>SKGM</dd>
 <dt>Lokasi (kd_lokasi)</dt><dd>JJF3</dd>
 <dt>Kode internal</dt><dd>[kd_mst_unit] · [kd_sub_unit]</dd>
@@ -103,9 +104,9 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-arrow-repeat"></i> Sinkronisasi</div>
 <dl class="ds-dl">
 <dt>Status</dt><dd><span class="ds-badge ds-badge-success">Y · Terposting</span></dd>
-<dt>Sync ke-</dt><dd>1</dd>
-<dt>Waktu sync</dt><dd>15-10-2026 17:02</dd>
-<dt>Error terakhir</dt><dd>—</dd>
+<dt>Gagal sebelumnya</dt><dd>1× (sync_error_count)</dd>
+<dt>Error terakhir</dt><dd>15-10-2026 16:40 · GL: periode 10/2026 unit SKGM belum dibuka</dd>
+<dt>Berhasil sync</dt><dd>15-10-2026 17:02 (sync_tgl)</dd>
 </dl>
 <div style="margin-top: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
 <div class="ds-stat-card"><div class="ds-stat-label">Debit</div><div class="ds-stat-value" style="font-size: 16px">22.200.000</div></div>
@@ -118,8 +119,9 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 
 <section class="ds-section">
 <ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
-<li><button type="button" class="{{tabBaris}}" onClick="{{showBaris}}" data-tab="detail:baris" data-default="1">Baris Jurnal · 3</button></li>
-<li><button type="button" class="{{tabRincian}}" onClick="{{showRincian}}" data-tab="detail:rincian">Rincian Subledger · 3 baris / 6 rincian</button></li>
+<li><button type="button" class="{{tabBaris}}" onClick="{{showBaris}}" data-tab="detail:baris" data-default="1">Baris Jurnal · 4</button></li>
+<li><button type="button" class="{{tabRincian}}" onClick="{{showRincian}}" data-tab="detail:rincian">Rincian Subledger · 4 baris / 6 rincian</button></li>
+<li><button type="button" class="{{tabDasar}}" onClick="{{showDasar}}" data-tab="detail:dasar">Dasar Pajak · 2</button></li>
 </ul>
 
 <sc-if value="{{isBaris}}" hint-placeholder-val="{{true}}" data-panel="detail:baris">
@@ -129,9 +131,10 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <tr><th>#</th><th>Tipe</th><th>Sub Tipe</th><th>No. COA</th><th>D/K</th><th>Mata Uang</th><th class="text-end">Kurs</th><th class="text-end">Jumlah Ori</th><th class="text-end">Jumlah</th><th>Proyek</th><th>Dept</th><th>Keterangan</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">20.000.000</td><td class="text-end">20.000.000</td><td>[proyek]</td><td>[dept]</td><td>Penerimaan material struktur</td></tr>
-<tr><td>2</td><td><span class="ds-badge ds-badge-info">PPN</span></td><td>PPN 11%</td><td>1-150-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">2.200.000</td><td class="text-end">2.200.000</td><td>[proyek]</td><td>[dept]</td><td>PPN masukan GR</td></tr>
-<tr><td>3</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>2-110-05</td><td>K</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td><td>[proyek]</td><td>[dept]</td><td>Hutang GR belum ditagih</td></tr>
+<tr><td>1</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">12.000.000</td><td class="text-end">12.000.000</td><td>Proyek X</td><td>—</td><td>Persediaan material</td></tr>
+<tr><td>2</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">8.000.000</td><td class="text-end">8.000.000</td><td>Proyek Y</td><td>—</td><td>Persediaan material</td></tr>
+<tr><td>3</td><td><span class="ds-badge ds-badge-info">PPN</span></td><td>12</td><td>1-150-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">2.200.000</td><td class="text-end">2.200.000</td><td>—</td><td>—</td><td>PPN masukan GR</td></tr>
+<tr><td>4</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>2-110-05</td><td>K</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td><td>—</td><td>—</td><td>Hutang GR belum ditagih</td></tr>
 </tbody>
 <tfoot>
 <tr style="font-weight: 600"><td colspan="8">Total Debit / Kredit</td><td class="text-end">22.200.000 / 22.200.000</td><td colspan="3"><span class="ds-badge ds-badge-success">Balance</span></td></tr>
@@ -141,23 +144,38 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 </sc-if>
 
 <sc-if value="{{isRincian}}" hint-placeholder-val="{{false}}" data-panel="detail:rincian">
-<div class="ds-alert ds-alert-success" role="status" style="margin-bottom: 12px"><i class="bi bi-check-circle"></i><div><strong>Tie-out cocok.</strong> Total rincian per baris subledger = nilai baris subledger, dan total rincian yang tertaut ke tiap baris jurnal = nilai baris jurnal itu (dijumlah bertanda, D + / K −).</div></div>
+<div class="ds-alert ds-alert-success" role="status" style="margin-bottom: 12px"><i class="bi bi-check-circle"></i><div><strong>Tie-out cocok.</strong> Total rincian (aj_voucher_sl) per baris aj_voucher_dtl = nilai baris itu, dan total rincian yang tertaut ke tiap baris jurnal = nilai baris jurnal itu (dijumlah bertanda, D + / K −). Keempat baris memakai voucher_dtl_no / voucher_dtl_key yang sama dengan header GR; dibedakan oleh tipe, D/K, akun dan proyek.</div></div>
 <div style="overflow-x: auto">
 <table class="ds-table" style="min-width: 1050px">
 <thead>
-<tr><th>Baris Subledger / Rincian</th><th>Tipe</th><th>D/K</th><th class="text-end">Jumlah</th><th>Tertaut ke Jurnal</th><th>Tie-out</th></tr>
+<tr><th>Baris aj_voucher_dtl / Rincian aj_voucher_sl</th><th>No · Key</th><th>Tipe</th><th>D/K</th><th>Proyek</th><th class="text-end">Jumlah</th><th>Tertaut ke Jurnal</th><th>Tie-out</th></tr>
 </thead>
 <tbody>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · ACC</td><td>ACC</td><td>D</td><td class="text-end">20.000.000</td><td>Baris #1 · 1-130-01</td><td><span class="ds-badge ds-badge-success">20.000.000 = 20.000.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>ACC</td><td>D</td><td class="text-end">12.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>ACC</td><td>D</td><td class="text-end">8.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · PPN 11%</td><td>PPN</td><td>D</td><td class="text-end">2.200.000</td><td>Baris #2 · 1-150-01</td><td><span class="ds-badge ds-badge-success">2.200.000 = 2.200.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PPN</td><td>D</td><td class="text-end">1.320.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PPN</td><td>D</td><td class="text-end">880.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>GR-2026-000123 · ACC</td><td>ACC</td><td>K</td><td class="text-end">22.200.000</td><td>Baris #3 · 2-110-05</td><td><span class="ds-badge ds-badge-success">22.200.000 = 22.200.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>ACC</td><td>K</td><td class="text-end">13.320.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>ACC</td><td>K</td><td class="text-end">8.880.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Persediaan Proyek X</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>D</td><td>Proyek X</td><td class="text-end">12.000.000</td><td>Baris #1 · 1-130-01</td><td><span class="ds-badge ds-badge-success">12.000.000 = 12.000.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PO-2026-0450 · 4501</td><td>ACC</td><td>D</td><td>Proyek X</td><td class="text-end">12.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Persediaan Proyek Y</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>D</td><td>Proyek Y</td><td class="text-end">8.000.000</td><td>Baris #2 · 1-130-01</td><td><span class="ds-badge ds-badge-success">8.000.000 = 8.000.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PO-2026-0457 · 4508</td><td>ACC</td><td>D</td><td>Proyek Y</td><td class="text-end">8.000.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>PPN 12</td><td>GR-2026-000123 · 88231</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">2.200.000</td><td>Baris #3 · 1-150-01</td><td><span class="ds-badge ds-badge-success">2.200.000 = 2.200.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450 · DPP 11.000.000</td><td>PO-2026-0450 · 4501</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">1.320.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457 · DPP 7.333.333</td><td>PO-2026-0457 · 4508</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">880.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Hutang GR</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">22.200.000</td><td>Baris #4 · 2-110-05</td><td><span class="ds-badge ds-badge-success">22.200.000 = 22.200.000</span></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PO-2026-0450 · 4501</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">13.320.000</td><td>jurnal_dtl_id → #4</td><td></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PO-2026-0457 · 4508</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">8.880.000</td><td>jurnal_dtl_id → #4</td><td></td></tr>
 </tbody>
+</table>
+</div>
+</sc-if>
+
+<sc-if value="{{isDasar}}" hint-placeholder-val="{{false}}" data-panel="detail:dasar">
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-calculator"></i><div><strong>Dasar pajak (aj_voucher_dtl_pajak).</strong> DPP disimpan per baris dasar dan tidak dijurnal. PPN 12% dengan DPP nilai lain 11/12.</div></div>
+<div style="overflow-x: auto">
+<table class="ds-table" style="min-width: 760px">
+<thead><tr><th>Baris pajak</th><th>Baris dasar</th><th class="text-end">Jumlah dasar</th><th class="text-end">DPP</th></tr></thead>
+<tbody>
+<tr><td>PPN 12 · baris #3</td><td>Persediaan Proyek X · baris #1</td><td class="text-end">12.000.000</td><td class="text-end">11.000.000</td></tr>
+<tr><td>PPN 12 · baris #3</td><td>Persediaan Proyek Y · baris #2</td><td class="text-end">8.000.000</td><td class="text-end">7.333.333</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="3">Σ DPP × 12% = 2.199.999,96 → 2.200.000 <span class="ds-badge ds-badge-success">cocok ±1</span></td><td class="text-end">18.333.333</td></tr></tfoot>
 </table>
 </div>
 </sc-if>
@@ -181,10 +199,13 @@ class Component extends DCLogic {
       wrapperClass: tema === 'light' ? 'wrapper' : 'wrapper ' + tema,
       tabBaris: t === 'baris' ? 'ds-tabs-link is-active' : 'ds-tabs-link',
       tabRincian: t === 'rincian' ? 'ds-tabs-link is-active' : 'ds-tabs-link',
+      tabDasar: t === 'dasar' ? 'ds-tabs-link is-active' : 'ds-tabs-link',
       isBaris: t === 'baris',
       isRincian: t === 'rincian',
+      isDasar: t === 'dasar',
       showBaris: () => this.setState({ tab: 'baris' }),
       showRincian: () => this.setState({ tab: 'rincian' }),
+      showDasar: () => this.setState({ tab: 'dasar' }),
       reversalOpen: this.state.reversalOpen,
       openReversal: () => this.setState({ reversalOpen: true }),
       closeReversal: () => this.setState({ reversalOpen: false })

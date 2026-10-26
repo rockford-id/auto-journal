@@ -65,7 +65,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-page-header">
 <div class="ds-page-title">
 <h1>Tagihan Menunggu Pembayaran</h1>
-<div class="ds-page-subtitle">Rincian subledger (aj_jurnal_sl_dtl) yang jurnal_dtl_id dan jurnal_dtl_cb-nya masih kosong</div>
+<div class="ds-page-subtitle">Rincian (aj_voucher_sl) baris BANK / hutang yang jurnal_dtl_id dan jurnal_dtl_cb-nya masih kosong</div>
 </div>
 <div class="ds-page-actions">
 <button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari no. voucher / ref…</span></button>
@@ -78,7 +78,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-info-circle"></i><div>Halaman ini <strong>hanya baca</strong>. Pembayaran diproses di <strong>Kasbank Entry</strong>, yang otomatis mengisi jurnal_dtl_cb. Voucher yang wajib dicek Pajak baru bisa dibayar setelah cb_transaksi.valid_transaksi = Y. Rincian yang sudah tertaut tidak bisa ditautkan lagi, sehingga tidak bisa dibayar dua kali.</div></div>
 
 <div class="row g-3" style="margin-bottom: 14px">
-<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Rincian Belum Dibayar</div><div class="ds-stat-value">12</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">dari 9 voucher</div></div></div>
+<div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Rincian Belum Dibayar</div><div class="ds-stat-value">16</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">dari 9 voucher</div></div></div>
 <div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Nilai Belum Dibayar</div><div class="ds-stat-value">456.880.000</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">IDR, sebelum potongan PPh</div></div></div>
 <div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Menunggu Cek Pajak</div><div class="ds-stat-value" style="color: var(--t-warning)">3</div><div class="ds-stat-delta"><a href="Pajak.dc.html">Buka Pemeriksaan Pajak</a></div></div></div>
 <div class="col-6 col-lg-3"><div class="ds-stat-card"><div class="ds-stat-label">Umur di atas 60 Hari</div><div class="ds-stat-value" style="color: var(--t-danger)">2</div><div class="ds-stat-delta" style="color: var(--t-danger)">83.400.000</div></div></div>
@@ -88,8 +88,8 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <select class="ds-input" style="width: 220px" aria-label="Aplikasi dan tipe"><option>Semua aplikasi</option><option>SIPP · COP</option><option>Reimbursement · RB</option></select>
 <div class="ds-toolbar-divider"></div>
 <ul class="ds-tabs" role="tablist" style="margin: 0">
-<li><button type="button" class="{{tabAll}}" onClick="{{showAll}}" data-tab="umur:ALL" data-default="1">Semua · 12</button></li>
-<li><button type="button" class="{{tabA}}" onClick="{{showA}}" data-tab="umur:A">0–30 hari · 7</button></li>
+<li><button type="button" class="{{tabAll}}" onClick="{{showAll}}" data-tab="umur:ALL" data-default="1">Semua · 16</button></li>
+<li><button type="button" class="{{tabA}}" onClick="{{showA}}" data-tab="umur:A">0–30 hari · 11</button></li>
 <li><button type="button" class="{{tabB}}" onClick="{{showB}}" data-tab="umur:B">31–60 hari · 3</button></li>
 <li><button type="button" class="{{tabC}}" onClick="{{showC}}" data-tab="umur:C">Di atas 60 hari · 2</button></li>
 </ul>
@@ -100,12 +100,16 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div style="overflow-x: auto">
 <table class="ds-table ds-table-striped" style="min-width: 1100px">
 <thead>
-<tr><th>No. Voucher</th><th>Tgl</th><th>Rincian (Ref)</th><th>Keterangan</th><th>Tipe</th><th>D/K</th><th class="text-end">Jumlah</th><th class="text-end">Umur</th><th>Cek Pajak</th><th>Status</th></tr>
+<tr><th>No. Voucher</th><th>Tgl</th><th>Rincian (voucher_sl_no)</th><th>Keterangan</th><th>Tipe</th><th>D/K</th><th class="text-end">Jumlah</th><th class="text-end">Umur</th><th>Cek Pajak</th><th>Status</th></tr>
 </thead>
 <tbody>
 <tr hidden="{{hide.a}}" data-row="umur:A" data-amount="57500000"><td style="font-weight: 600">COP-2026-0402</td><td>21-10-2026</td><td>SPK-2026-0140</td><td>Termin 1 pekerjaan drainase</td><td>ACC</td><td>K</td><td class="text-end">57.500.000</td><td class="text-end">0 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
-<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="4750000"><td style="font-weight: 600">RB-2026-01261</td><td>21-10-2026</td><td>RB-2026-01261</td><td>Reimburse perjalanan dinas</td><td>BANK</td><td>K</td><td class="text-end">4.750.000</td><td class="text-end">0 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
-<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="18630000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>RB-2026-01250</td><td>Reimburse biaya proyek Oktober</td><td>BANK</td><td>K</td><td class="text-end">18.630.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="4750000"><td style="font-weight: 600">RB-2026-01261</td><td>21-10-2026</td><td>KW-PD-0218</td><td>Reimburse perjalanan dinas</td><td>BANK</td><td>K</td><td class="text-end">4.750.000</td><td class="text-end">0 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="11100000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>INV-KS-0091</td><td>Reimburse proyek Okt · jasa konsultan</td><td>BANK</td><td>K</td><td class="text-end">11.100.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="5000000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>KW-0442</td><td>Reimburse proyek Okt · sewa alat</td><td>BANK</td><td>K</td><td class="text-end">5.000.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="2220000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>NOTA-7781</td><td>Reimburse proyek Okt · ATK</td><td>BANK</td><td>K</td><td class="text-end">2.220.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="300000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>STRUK-TOL-10</td><td>Reimburse proyek Okt · parkir &amp; tol</td><td>BANK</td><td>K</td><td class="text-end">300.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
+<tr hidden="{{hide.a}}" data-row="umur:A" data-amount="10000"><td style="font-weight: 600">RB-2026-01250</td><td>20-10-2026</td><td>MTR-01</td><td>Reimburse proyek Okt · meterai</td><td>BANK</td><td>K</td><td class="text-end">10.000</td><td class="text-end">1 hari</td><td><span class="ds-badge ds-badge-warning">Menunggu</span></td><td><span class="ds-badge ds-badge-neutral">Belum bisa dibayar</span></td></tr>
 <tr hidden="{{hide.a}}" data-row="umur:A" data-amount="9850000"><td style="font-weight: 600">COP-2026-0395</td><td>14-10-2026</td><td>SPK-2026-0133</td><td>Termin 1 pekerjaan jalan</td><td>ACC</td><td>K</td><td class="text-end">9.850.000</td><td class="text-end">7 hari</td><td><span class="ds-badge ds-badge-success">Sudah</span></td><td><span class="ds-badge ds-badge-info">Siap dibayar</span></td></tr>
 <tr hidden="{{hide.a}}" data-row="umur:A" data-amount="31500000"><td style="font-weight: 600">COP-2026-0391</td><td>09-10-2026</td><td>SPK-2026-0127</td><td>Termin 1 instalasi MEP</td><td>ACC</td><td>K</td><td class="text-end">31.500.000</td><td class="text-end">12 hari</td><td><span class="ds-badge ds-badge-success">Sudah</span></td><td><span class="ds-badge ds-badge-info">Siap dibayar</span></td></tr>
 <tr hidden="{{hide.a}}" data-row="umur:A" data-amount="12250000"><td style="font-weight: 600">COP-2026-0391</td><td>09-10-2026</td><td>SPK-2026-0128</td><td>Termin 1 instalasi MEP (paket 2)</td><td>ACC</td><td>K</td><td class="text-end">12.250.000</td><td class="text-end">12 hari</td><td><span class="ds-badge ds-badge-success">Sudah</span></td><td><span class="ds-badge ds-badge-info">Siap dibayar</span></td></tr>

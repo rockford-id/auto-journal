@@ -120,16 +120,17 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 
 <div data-panel="param:sub">
 <section class="ds-section">
-<div class="ds-section-title"><i class="bi bi-diagram-2"></i> Sub tipe jurnal <span class="ds-section-meta">aj_jurnal_sub_tipe · harus milik tipe induknya</span></div>
+<div class="ds-section-title"><i class="bi bi-diagram-2"></i> Sub tipe jurnal <span class="ds-section-meta">aj_jurnal_sub_tipe · kode unik lintas tipe · harus milik tipe induknya</span></div>
 <div style="overflow-x: auto">
 <table class="ds-table ds-table-striped" style="min-width: 560px">
 <thead><tr><th>Sub Tipe</th><th>Tipe Induk</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr></thead>
 <tbody>
-<tr><td style="font-weight: 600">PPN 11%</td><td>PPN</td><td>PPN tarif umum</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">PPN 10%</td><td>PPN</td><td>PPN tarif lama</td><td><span class="ds-badge ds-badge-neutral">Nonaktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">PPH 23</td><td>PPH</td><td>PPh pasal 23 atas jasa</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
-<tr><td style="font-weight: 600">PPH 21</td><td>PPH</td><td>PPh pasal 21</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">PPH FINAL</td><td>PPH</td><td>PPh final pasal 4 ayat 2</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">12</td><td>PPN</td><td>PPN 12% (DPP nilai lain 11/12)</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">11</td><td>PPN</td><td>PPN 11%</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">10</td><td>PPN</td><td>PPN 10% (tarif lama)</td><td><span class="ds-badge ds-badge-neutral">Nonaktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">23</td><td>PPH</td><td>PPh pasal 23 atas jasa</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td style="font-weight: 600">21</td><td>PPH</td><td>PPh pasal 21</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">FINAL</td><td>PPH</td><td>PPh final pasal 4 ayat 2</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
 </tbody>
 </table>
 </div>
@@ -175,7 +176,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <section class="ds-section">
 <div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah sub tipe</div>
 <div class="ds-form-stack">
-<div class="form-group"><label class="ds-label" for="s-kode">Sub Tipe <span class="ds-required">*</span></label><input id="s-kode" class="ds-input" value="PPH 23" disabled></div>
+<div class="form-group"><label class="ds-label" for="s-kode">Sub Tipe <span class="ds-required">*</span></label><input id="s-kode" class="ds-input" value="23" disabled><small class="ds-helper">Kode unik untuk semua tipe, jadi tidak boleh ada kode 23 di tipe lain.</small></div>
 <div class="form-group"><label class="ds-label" for="s-induk">Tipe Induk <span class="ds-required">*</span></label><select id="s-induk" class="ds-input"><option>PPH</option><option>PPN</option><option>ACC</option><option>BANK</option></select><small class="ds-helper">Baris jurnal dengan sub tipe ini wajib memakai tipe induk yang sama.</small></div>
 <div class="form-group"><label class="ds-label" for="s-desc">Deskripsi <span class="ds-required">*</span></label><input id="s-desc" class="ds-input" value="PPh pasal 23 atas jasa"></div>
 <div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
