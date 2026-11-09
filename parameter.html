@@ -48,7 +48,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="header-right">
 <a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
 <span class="unit-pill-icon">SK</span>
-<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: SKGM01</span></span>
 <span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
 </a>
 <button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
@@ -62,7 +62,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-page-header">
 <div class="ds-page-title">
 <h1>Master Parameter</h1>
-<div class="ds-page-subtitle">Aturan routing per aplikasi + tipe, tipe jurnal, dan sub tipe jurnal</div>
+<div class="ds-page-subtitle">Aturan routing per aplikasi + tipe (aj_voucher_param), tipe jurnal, dan sub tipe jurnal</div>
 </div>
 <div class="ds-page-actions">
 <button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari parameter…</span></button>
@@ -84,17 +84,31 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="col-12 col-xl-8">
 
 <div data-panel="param:routing">
-<section class="ds-section">
+<section class="ds-section" style="margin-bottom: 14px">
 <div class="ds-section-title"><i class="bi bi-signpost-split"></i> Routing per aplikasi + tipe <span class="ds-section-meta">1 aturan per app + tipe</span></div>
 <div style="overflow-x: auto">
-<table class="ds-table ds-table-striped" style="min-width: 640px">
-<thead><tr><th>Aplikasi</th><th>Tipe</th><th>Wajib Cek Pajak (fg_pph)</th><th>Ada Bank (fg_bank)</th><th>Tujuan</th><th>Aksi</th></tr></thead>
+<table class="ds-table ds-table-striped" style="min-width: 760px">
+<thead><tr><th>Aplikasi (app)</th><th>Tipe</th><th>Tujuan (fg_destination)</th><th>Wajib Cek Pajak (fg_pph)</th><th>Ada Bank (fg_bank)</th><th>Ringkas (fg_ringkas)</th><th>Aksi</th></tr></thead>
 <tbody>
-<tr><td>SIPP</td><td>GR</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-info">GL</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td>SIPP</td><td>AMOR</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-info">GL</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">SIPP</td><td style="font-weight: 600">COP</td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-brand">TAX</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
-<tr><td>Cash Advance</td><td>CA</td><td><span class="ds-badge ds-badge-neutral">Tidak</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-success">CB</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td>Reimbursement</td><td>RB</td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-warning">Ya</span></td><td><span class="ds-badge ds-badge-brand">TAX</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">SIPP</td><td style="font-weight: 600">GR</td><td><span class="ds-badge ds-badge-info">GL</span></td><td><span class="ds-badge ds-badge-neutral">N</span></td><td><span class="ds-badge ds-badge-neutral">N</span></td><td><span class="ds-badge ds-badge-success">Y</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td>SIPP</td><td>AMOR</td><td><span class="ds-badge ds-badge-info">GL</span></td><td><span class="ds-badge ds-badge-neutral">N</span></td><td><span class="ds-badge ds-badge-neutral">N</span></td><td><span class="ds-badge ds-badge-neutral">N</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td>FPP</td><td>FPP</td><td><span class="ds-badge ds-badge-brand">TAX</span></td><td><span class="ds-badge ds-badge-warning">Y</span></td><td><span class="ds-badge ds-badge-warning">Y</span></td><td><span style="color: var(--t-text-muted)">N · tidak berlaku</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td>SIPP</td><td>COP</td><td colspan="4"><span class="ds-badge ds-badge-warning">Belum diputuskan</span> <span style="font-size: 12px; color: var(--t-text-muted)">rute CB atau TAX, menunggu keputusan</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+</tbody>
+</table>
+</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">SIPP · AMOR adalah contoh rute GL tanpa ringkas. Nilai SIPP · GR dan FPP · FPP mengikuti kesepakatan; fg_ringkas = Y untuk GR masih nilai contoh.</div>
+</section>
+
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-info-circle"></i> Arti tujuan</div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 640px">
+<thead><tr><th>Tujuan</th><th>Batch (aj_jurnal_hdr)</th><th>Baris cb_transaksi</th><th>Dijurnal oleh</th><th>fg_ringkas</th></tr></thead>
+<tbody>
+<tr><td><span class="ds-badge ds-badge-info">GL</span></td><td>Wajib, dibuat aplikasi pengirim</td><td>Tidak ada</td><td>Job sync, dari aj_voucher_dtl</td><td>Berlaku</td></tr>
+<tr><td><span class="ds-badge ds-badge-success">CB</span></td><td>Tidak dipakai</td><td>Ada</td><td>Kasbank Entry (BKK)</td><td>Tidak berlaku</td></tr>
+<tr><td><span class="ds-badge ds-badge-brand">TAX</span></td><td>Tidak dipakai</td><td>Ada, dicek Pajak dulu</td><td>Kasbank Entry (BKK)</td><td>Tidak berlaku</td></tr>
 </tbody>
 </table>
 </div>
@@ -103,18 +117,19 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 
 <div data-panel="param:tipe">
 <section class="ds-section">
-<div class="ds-section-title"><i class="bi bi-tags"></i> Tipe jurnal <span class="ds-section-meta">aj_jurnal_tipe</span></div>
+<div class="ds-section-title"><i class="bi bi-tags"></i> Tipe jurnal <span class="ds-section-meta">aj_jurnal_tipe · description dipakai untuk keterangan baris GL yang diringkas</span></div>
 <div style="overflow-x: auto">
 <table class="ds-table ds-table-striped" style="min-width: 560px">
-<thead><tr><th>Tipe</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr></thead>
+<thead><tr><th>Tipe</th><th>Deskripsi</th><th>Contoh keterangan ringkas</th><th>Aksi</th></tr></thead>
 <tbody>
-<tr><td style="font-weight: 600">ACC</td><td>Akun umum (biaya, persediaan, hutang)</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">BANK</td><td>Baris kas / bank, diproses Kasbank</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">PPN</td><td>Pajak pertambahan nilai</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">PPH</td><td>Pajak penghasilan, diproses Pajak</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">ACC</td><td>Akun</td><td>GR · Akun</td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td style="font-weight: 600">BANK</td><td>Kas / Bank</td><td>—</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">PPN</td><td>PPN</td><td>dipakai jika sub tipe kosong</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">PPH</td><td>PPh</td><td>dipakai jika sub tipe kosong</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
 </tbody>
 </table>
 </div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Baris ACC tidak punya sub tipe, jadi semua akun di GR yang diringkas berketerangan "GR · Akun" (disepakati sementara).</div>
 </section>
 </div>
 
@@ -123,17 +138,17 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-diagram-2"></i> Sub tipe jurnal <span class="ds-section-meta">aj_jurnal_sub_tipe · kode unik lintas tipe · harus milik tipe induknya</span></div>
 <div style="overflow-x: auto">
 <table class="ds-table ds-table-striped" style="min-width: 560px">
-<thead><tr><th>Sub Tipe</th><th>Tipe Induk</th><th>Deskripsi</th><th>Status</th><th>Aksi</th></tr></thead>
+<thead><tr><th>Sub Tipe</th><th>Tipe Induk</th><th>Deskripsi</th><th>Contoh keterangan ringkas</th><th>Aksi</th></tr></thead>
 <tbody>
-<tr><td style="font-weight: 600">12</td><td>PPN</td><td>PPN 12% (DPP nilai lain 11/12)</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">11</td><td>PPN</td><td>PPN 11%</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">10</td><td>PPN</td><td>PPN 10% (tarif lama)</td><td><span class="ds-badge ds-badge-neutral">Nonaktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">23</td><td>PPH</td><td>PPh pasal 23 atas jasa</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
-<tr><td style="font-weight: 600">21</td><td>PPH</td><td>PPh pasal 21</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
-<tr><td style="font-weight: 600">FINAL</td><td>PPH</td><td>PPh final pasal 4 ayat 2</td><td><span class="ds-badge ds-badge-success">Aktif</span></td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">12</td><td>PPN</td><td>PPN 12%</td><td>GR · PPN 12%</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">11</td><td>PPN</td><td>PPN 11%</td><td>GR · PPN 11%</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr style="background: var(--t-surf-2)"><td style="font-weight: 600">23</td><td>PPH</td><td>PPh Pasal 23</td><td>—</td><td><span class="ds-badge ds-badge-active">Sedang diubah</span></td></tr>
+<tr><td style="font-weight: 600">21</td><td>PPH</td><td>PPh Pasal 21</td><td>—</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
+<tr><td style="font-weight: 600">FINAL</td><td>PPH</td><td>PPh Final Pasal 4(2)</td><td>—</td><td><button type="button" class="ds-btn ds-btn-sm ds-btn-ghost">Ubah</button></td></tr>
 </tbody>
 </table>
 </div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">PPh hanya muncul di rute CB/TAX (dijurnal Kasbank), jadi tidak punya contoh keterangan ringkas GL.</div>
 </section>
 </div>
 
@@ -145,10 +160,11 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah routing</div>
 <div class="ds-form-stack">
 <div class="form-group"><label class="ds-label" for="p-app">Aplikasi <span class="ds-required">*</span></label><input id="p-app" class="ds-input" value="SIPP"></div>
-<div class="form-group"><label class="ds-label" for="p-tipe">Tipe <span class="ds-required">*</span></label><input id="p-tipe" class="ds-input" value="COP"><small class="ds-helper">Kombinasi aplikasi + tipe harus unik.</small></div>
-<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Wajib cek Pajak sebelum dibayar (fg_pph)</span></label></div>
-<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Ada baris bank (fg_bank)</span></label></div>
-<div class="form-group"><label class="ds-label" for="p-dest">Tujuan <span class="ds-required">*</span></label><select id="p-dest" class="ds-input"><option>TAX</option><option>CB</option><option>GL</option></select></div>
+<div class="form-group"><label class="ds-label" for="p-tipe">Tipe <span class="ds-required">*</span></label><input id="p-tipe" class="ds-input" value="GR"><small class="ds-helper">Kombinasi aplikasi + tipe harus unik. Aplikasi dengan 1 jenis dokumen memakai tipe = aplikasi, mis. FPP · FPP.</small></div>
+<div class="form-group"><label class="ds-label" for="p-dest">Tujuan <span class="ds-required">*</span></label><select id="p-dest" class="ds-input"><option>GL</option><option>CB</option><option>TAX</option></select></div>
+<div class="form-group"><label class="ds-switch" for="p-pph"><input id="p-pph" type="checkbox"><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Wajib cek Pajak sebelum dibayar (fg_pph)</span></label></div>
+<div class="form-group"><label class="ds-switch" for="p-bank"><input id="p-bank" type="checkbox"><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Ada baris bank (fg_bank)</span></label><small class="ds-helper">Arti fg_bank belum didefinisikan.</small></div>
+<div class="form-group"><label class="ds-switch" for="p-ringkas"><input id="p-ringkas" type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Ringkas baris jurnal GL (fg_ringkas)</span></label><small class="ds-helper">Hanya untuk tujuan GL. Y: baris dalam 1 batch yang tipe, sub tipe, D/K, akun dan dimensinya sama dijumlah jadi 1 baris GL, keterangannya dibentuk sistem, mis. "GR · PPN 12%". N: 1 baris aj_voucher_dtl = 1 baris GL dengan keterangan dari pengirim.</small></div>
 </div>
 <div class="ds-form-footer">
 <button type="button" class="ds-btn ds-btn-ghost">Batal</button>
@@ -161,9 +177,9 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <section class="ds-section">
 <div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah tipe jurnal</div>
 <div class="ds-form-stack">
-<div class="form-group"><label class="ds-label" for="t-kode">Tipe <span class="ds-required">*</span></label><input id="t-kode" class="ds-input" value="PPH" disabled><small class="ds-helper">Kode tidak bisa diubah karena dipakai di jurnal.</small></div>
-<div class="form-group"><label class="ds-label" for="t-desc">Deskripsi <span class="ds-required">*</span></label><input id="t-desc" class="ds-input" value="Pajak penghasilan, diproses Pajak"></div>
-<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
+<div class="form-group"><label class="ds-label" for="t-kode">Tipe <span class="ds-required">*</span></label><input id="t-kode" class="ds-input" value="ACC" disabled><small class="ds-helper">Kode tidak bisa diubah karena dipakai di baris subledger.</small></div>
+<div class="form-group"><label class="ds-label" for="t-desc">Deskripsi <span class="ds-required">*</span></label><input id="t-desc" class="ds-input" value="Akun"><small class="ds-helper">Tampil di keterangan baris GL yang diringkas: "&lt;tipe voucher&gt; · Akun".</small></div>
+<div class="form-group"><label class="ds-switch" for="t-aktif"><input id="t-aktif" type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
 </div>
 <div class="ds-form-footer">
 <button type="button" class="ds-btn ds-btn-ghost">Batal</button>
@@ -177,9 +193,9 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-section-title"><i class="bi bi-pencil-square"></i> Ubah sub tipe</div>
 <div class="ds-form-stack">
 <div class="form-group"><label class="ds-label" for="s-kode">Sub Tipe <span class="ds-required">*</span></label><input id="s-kode" class="ds-input" value="23" disabled><small class="ds-helper">Kode unik untuk semua tipe, jadi tidak boleh ada kode 23 di tipe lain.</small></div>
-<div class="form-group"><label class="ds-label" for="s-induk">Tipe Induk <span class="ds-required">*</span></label><select id="s-induk" class="ds-input"><option>PPH</option><option>PPN</option><option>ACC</option><option>BANK</option></select><small class="ds-helper">Baris jurnal dengan sub tipe ini wajib memakai tipe induk yang sama.</small></div>
-<div class="form-group"><label class="ds-label" for="s-desc">Deskripsi <span class="ds-required">*</span></label><input id="s-desc" class="ds-input" value="PPh pasal 23 atas jasa"></div>
-<div class="form-group"><label class="ds-switch"><input type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
+<div class="form-group"><label class="ds-label" for="s-induk">Tipe Induk <span class="ds-required">*</span></label><select id="s-induk" class="ds-input"><option>PPH</option><option>PPN</option><option>ACC</option><option>BANK</option></select><small class="ds-helper">Baris subledger dengan sub tipe ini wajib memakai tipe induk yang sama.</small></div>
+<div class="form-group"><label class="ds-label" for="s-desc">Deskripsi <span class="ds-required">*</span></label><input id="s-desc" class="ds-input" value="PPh Pasal 23"></div>
+<div class="form-group"><label class="ds-switch" for="s-aktif"><input id="s-aktif" type="checkbox" checked><span class="ds-switch-track"><span class="ds-switch-knob"></span></span><span class="ds-switch-label">Aktif</span></label></div>
 </div>
 <div class="ds-form-footer">
 <button type="button" class="ds-btn ds-btn-ghost">Batal</button>

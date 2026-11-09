@@ -51,7 +51,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="header-right">
 <a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
 <span class="unit-pill-icon">SK</span>
-<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: SKGM01</span></span>
 <span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
 </a>
 <button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
@@ -65,19 +65,19 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="ds-page-header">
 <div class="ds-page-title">
 <h1>Pemeriksaan Pajak</h1>
-<div class="ds-page-subtitle">Voucher dengan fg_pph = Y wajib dicek sebelum bisa dibayar Kasbank Entry</div>
+<div class="ds-page-subtitle">Voucher rute TAX (fg_pph = Y) wajib dicek Pajak sebelum bisa dibayar Kasbank Entry. Semua FPP lewat sini karena berpotensi kena PPh.</div>
 </div>
 <div class="ds-page-actions">
-<button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari no. voucher…</span></button>
+<button class="ds-btn-search" type="button"><i class="bi bi-search"></i><span>Cari no. FPP…</span></button>
 </div>
 </div>
 
 <div class="ds-alert ds-alert-warning" role="note" style="margin-bottom: 14px"><i class="bi bi-easel"></i><div><strong>Ilustrasi.</strong> Layar pemeriksaan sebenarnya sudah ada di <strong>sistem Pajak</strong>. Halaman ini hanya menggambarkan informasi yang dibutuhkan dan apa yang terjadi pada data Auto Journal saat Pajak menyimpan hasil cek.</div></div>
 
 <div class="row g-3" style="margin-bottom: 14px">
-<div class="col-6 col-lg-4"><div class="ds-stat-card"><div class="ds-stat-label">Menunggu Dicek</div><div class="ds-stat-value" style="color: var(--t-warning)">3</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">belum bisa dibayar</div></div></div>
+<div class="col-6 col-lg-4"><div class="ds-stat-card"><div class="ds-stat-label">Menunggu Dicek</div><div class="ds-stat-value" style="color: var(--t-warning)">3</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">valid_transaksi = N, belum bisa dibayar</div></div></div>
 <div class="col-6 col-lg-4"><div class="ds-stat-card"><div class="ds-stat-label">Dicek Hari Ini</div><div class="ds-stat-value">4</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">2 ada PPh · 2 tanpa PPh</div></div></div>
-<div class="col-12 col-lg-4"><div class="ds-stat-card"><div class="ds-stat-label">Antrian Tertua</div><div class="ds-stat-value">2 hari</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">RB-2026-01250</div></div></div>
+<div class="col-12 col-lg-4"><div class="ds-stat-card"><div class="ds-stat-label">Antrian Tertua</div><div class="ds-stat-value">1 hari</div><div class="ds-stat-delta" style="color: var(--t-text-muted)">FPP-2026-01310</div></div></div>
 </div>
 
 <div class="row g-3">
@@ -85,93 +85,122 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <section class="ds-section">
 <div class="ds-section-title"><i class="bi bi-inbox"></i> Antrian <span class="ds-section-meta">cb_transaksi.valid_transaksi = N</span></div>
 <table class="ds-table ds-table-sm">
-<thead><tr><th>Voucher</th><th class="text-end">Diajukan</th></tr></thead>
+<thead><tr><th>FPP (no_reff)</th><th class="text-end">Diajukan</th></tr></thead>
 <tbody>
-<tr style="background: var(--t-surf-2)"><td><strong>RB-2026-01250</strong><br><span style="font-size: 11px; color: var(--t-text-muted)">Reimbursement · 20-10-2026</span></td><td class="text-end">18.630.000</td></tr>
-<tr><td>RB-2026-01261<br><span style="font-size: 11px; color: var(--t-text-muted)">Reimbursement · 21-10-2026</span></td><td class="text-end">4.750.000</td></tr>
-<tr><td>COP-2026-0402<br><span style="font-size: 11px; color: var(--t-text-muted)">SIPP · COP · 21-10-2026</span></td><td class="text-end">57.500.000</td></tr>
+<tr style="background: var(--t-surf-2)"><td><strong>FPP-2026-01310</strong><br><span style="font-size: 11px; color: var(--t-text-muted)">FPP · FPP · 22-10-2026 · 3 nota</span></td><td class="text-end">16.660.000</td></tr>
+<tr><td>FPP-2026-01311<br><span style="font-size: 11px; color: var(--t-text-muted)">FPP · FPP · 22-10-2026 · 2 nota</span></td><td class="text-end">1.850.000</td></tr>
+<tr><td>FPP-2026-01318<br><span style="font-size: 11px; color: var(--t-text-muted)">FPP · FPP · 22-10-2026 · 3 nota</span></td><td class="text-end">4.750.000</td></tr>
 </tbody>
 </table>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Penghubung ke Auto Journal: source = app (FPP), logic_1 = tipe (FPP), no_transaksi = voucher_key, no_reff = voucher_no.</div>
 </section>
 </div>
 
 <div class="col-12 col-xl-8">
+<ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
+<li><button type="button" class="{{tabAda}}" onClick="{{showAda}}" data-tab="hasil:ada" data-default="1">FPP-2026-01310 · ada PPh</button></li>
+<li><button type="button" class="{{tabTidak}}" onClick="{{showTidak}}" data-tab="hasil:tidak">FPP-2026-01311 · tanpa PPh</button></li>
+</ul>
+
+<sc-if value="{{isAda}}" hint-placeholder-val="{{true}}" data-panel="hasil:ada">
 <section class="ds-section" style="margin-bottom: 14px">
-<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> RB-2026-01250 <span class="ds-section-meta"><span class="ds-badge ds-badge-warning">Belum dicek</span></span></div>
+<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> FPP-2026-01310 <span class="ds-section-meta"><span class="ds-badge ds-badge-warning">Belum dicek</span></span></div>
 <dl class="ds-dl" style="margin-bottom: 14px">
-<dt>Aplikasi · Tipe</dt><dd>Reimbursement · RB</dd>
-<dt>Unit / Lokasi</dt><dd>SKGM / JJF3</dd>
-<dt>Tgl voucher</dt><dd>20-10-2026</dd>
-<dt>Diajukan (BANK, dari user)</dt><dd>18.630.000</dd>
+<dt>Aplikasi · Tipe</dt><dd>FPP · FPP <span style="font-size: 12px; color: var(--t-text-muted)">tujuan TAX · tanpa batch</span></dd>
+<dt>ID di aplikasi FPP</dt><dd>154872</dd>
+<dt>Unit / Lokasi</dt><dd>SKGM / SKGM01</dd>
+<dt>Tgl FPP</dt><dd>22-10-2026</dd>
+<dt>Diajukan (BANK bruto)</dt><dd>16.660.000</dd>
 </dl>
-<div class="ds-alert ds-alert-info" style="margin-bottom: 12px"><i class="bi bi-lock"></i><div>Baris dari user (sumber APP) hanya bisa dilihat. Penentuan PPh di bawah akan MENAMBAH baris baru bersumber TAX.</div></div>
+<div class="ds-alert ds-alert-info" style="margin-bottom: 12px"><i class="bi bi-lock"></i><div>Baris dari aplikasi FPP (sumber APP) hanya bisa dilihat. Penentuan PPh di bawah MENAMBAH baris baru bersumber TAX; baris APP tidak diubah.</div></div>
 <div style="overflow-x: auto">
-<table class="ds-table ds-table-sm" style="min-width: 720px">
-<thead><tr><th>Invoice (voucher_dtl_no)</th><th>Akun</th><th class="text-end">Jumlah</th><th>PPN (dari user)</th><th>PPh (ditentukan Pajak)</th><th class="text-end">DPP PPh</th><th class="text-end">PPh</th></tr></thead>
+<table class="ds-table ds-table-sm" style="min-width: 900px">
+<thead><tr><th>Nota (voucher_dtl_no)</th><th>Tipe</th><th>No. COA</th><th>Nama Akun</th><th>Keterangan</th><th>PPh (ditentukan Pajak)</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr></thead>
 <tbody>
-<tr><td>INV-KS-0091 · Jasa konsultan</td><td>5-310-01</td><td class="text-end">10.000.000</td><td><span class="ds-badge ds-badge-info">PPN 12%</span></td><td><span class="ds-badge ds-badge-warning">PPh 23 · 2%</span></td><td class="text-end">10.000.000</td><td class="text-end">200.000</td></tr>
-<tr><td>KW-0442 · Sewa alat</td><td>5-320-01</td><td class="text-end">5.000.000</td><td>—</td><td><span class="ds-badge ds-badge-warning">PPh 23 · 2%</span></td><td class="text-end">5.000.000</td><td class="text-end">100.000</td></tr>
-<tr><td>NOTA-7781 · ATK</td><td>5-330-01</td><td class="text-end">2.000.000</td><td><span class="ds-badge ds-badge-info">PPN 12%</span></td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">—</td><td class="text-end">—</td></tr>
-<tr><td>STRUK-TOL-10 · Parkir &amp; tol</td><td>5-340-01</td><td class="text-end">300.000</td><td>—</td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">—</td><td class="text-end">—</td></tr>
-<tr><td>MTR-01 · Meterai</td><td>5-350-01</td><td class="text-end">10.000</td><td>—</td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">—</td><td class="text-end">—</td></tr>
+<tr><td>INV-KS-0091</td><td>ACC</td><td style="white-space: nowrap">5-310-01</td><td style="font-style: italic; color: var(--t-text-muted)">Biaya Jasa Konsultan</td><td>Jasa konsultan</td><td><span class="ds-badge ds-badge-warning">PPh 23 · 2%</span></td><td class="text-end">10.000.000</td><td class="text-end"></td></tr>
+<tr><td>SR-2210</td><td>ACC</td><td style="white-space: nowrap">5-320-02</td><td style="font-style: italic; color: var(--t-text-muted)">Biaya Sewa Ruang</td><td>Sewa ruang meeting</td><td><span class="ds-badge ds-badge-warning">PPh Final · 10%</span></td><td class="text-end">5.000.000</td><td class="text-end"></td></tr>
+<tr><td>KW-001</td><td>ACC</td><td style="white-space: nowrap">5-390-09</td><td style="font-style: italic; color: var(--t-text-muted)">Biaya Meterai</td><td>Meterai</td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">10.000</td><td class="text-end"></td></tr>
+<tr><td>FPP-2026-01310</td><td>PPN 12</td><td style="white-space: nowrap">1-150-01</td><td style="font-style: italic; color: var(--t-text-muted)">PPN Masukan</td><td>PPN Masukan (DPP 9.166.667 + 4.583.333)</td><td>—</td><td class="text-end">1.650.000</td><td class="text-end"></td></tr>
+<tr><td>FPP-2026-01310</td><td>BANK</td><td>—</td><td style="font-style: italic; color: var(--t-text-muted)">dipilih Kasbank</td><td>Pembayaran FPP-2026-01310 (bruto)</td><td>—</td><td class="text-end"></td><td class="text-end">16.660.000</td></tr>
 </tbody>
-<tfoot><tr style="font-weight: 600"><td colspan="2">PPN 12% dari user: DPP 11.000.000</td><td class="text-end">1.320.000</td><td></td><td>Total PPh 23</td><td class="text-end">15.000.000</td><td class="text-end">300.000</td></tr></tfoot>
+<tfoot><tr style="font-weight: 600"><td colspan="6">Total baris APP <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">16.660.000</td><td class="text-end">16.660.000</td></tr></tfoot>
 </table>
 </div>
 </section>
 
 <section class="ds-section">
-<div class="ds-section-title"><i class="bi bi-clipboard-check"></i> Hasil pemeriksaan</div>
-<ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
-<li><button type="button" class="{{tabAda}}" onClick="{{showAda}}" data-tab="hasil:ada" data-default="1">Ada PPh</button></li>
-<li><button type="button" class="{{tabTidak}}" onClick="{{showTidak}}" data-tab="hasil:tidak">Tidak ada PPh</button></li>
-</ul>
-
-<sc-if value="{{isAda}}" hint-placeholder-val="{{true}}" data-panel="hasil:ada">
-<div class="ds-section-title" style="margin-bottom: 8px">Baris yang akan ditambahkan ke aj_voucher_dtl (sumber TAX)</div>
+<div class="ds-section-title"><i class="bi bi-clipboard-check"></i> Hasil pemeriksaan <span class="ds-section-meta">baris yang ditambahkan ke aj_voucher_dtl (sumber TAX)</span></div>
 <div style="overflow-x: auto; margin-bottom: 12px">
-<table class="ds-table ds-table-sm" style="min-width: 760px">
-<thead><tr><th>voucher_dtl_no</th><th>voucher_dtl_key</th><th>Tipe</th><th>Sub tipe</th><th>D/K</th><th>Akun</th><th class="text-end">Tarif</th><th class="text-end">Jumlah</th></tr></thead>
+<table class="ds-table ds-table-sm" style="min-width: 860px">
+<thead><tr><th>voucher_dtl_no</th><th>ID di sistem Pajak (voucher_dtl_key)</th><th>Tipe</th><th>Sub Tipe</th><th class="text-end">Tarif</th><th>No. COA</th><th>Nama Akun</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr></thead>
 <tbody>
-<tr style="background: var(--t-warning-bg)"><td>INV-KS-0091</td><td>PJK-3101</td><td>PPH</td><td>23</td><td>K</td><td>2-130-23 Utang PPh 23</td><td class="text-end">2</td><td class="text-end">200.000</td></tr>
-<tr style="background: var(--t-warning-bg)"><td>KW-0442</td><td>PJK-3102</td><td>PPH</td><td>23</td><td>K</td><td>2-130-23 Utang PPh 23</td><td class="text-end">2</td><td class="text-end">100.000</td></tr>
-<tr style="background: var(--t-warning-bg)"><td>RB-2026-01250</td><td>PJK-3103</td><td>BANK</td><td>—</td><td>D</td><td>potongan PPh atas pembayaran</td><td class="text-end">0</td><td class="text-end">300.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>INV-KS-0091</td><td>PJK-5512</td><td>PPH</td><td>23</td><td class="text-end">2</td><td style="white-space: nowrap">2-130-23</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang PPh Pasal 23</td><td class="text-end"></td><td class="text-end">200.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>SR-2210</td><td>PJK-5513</td><td>PPH</td><td>FINAL</td><td class="text-end">10</td><td style="white-space: nowrap">2-130-42</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang PPh Final Pasal 4(2)</td><td class="text-end"></td><td class="text-end">500.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>FPP-2026-01310</td><td>PJK-5514</td><td>BANK</td><td>—</td><td class="text-end">0</td><td>—</td><td style="font-style: italic; color: var(--t-text-muted)">dipilih Kasbank · potongan PPh</td><td class="text-end">700.000</td><td class="text-end"></td></tr>
 </tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="7">Total baris TAX <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">700.000</td><td class="text-end">700.000</td></tr></tfoot>
 </table>
 </div>
 <div class="ds-section-title" style="margin-bottom: 8px">Dan dasar pajaknya ke aj_voucher_dtl_pajak</div>
 <div style="overflow-x: auto; margin-bottom: 14px">
-<table class="ds-table ds-table-sm" style="min-width: 520px">
-<thead><tr><th>Baris pajak</th><th>Baris dasar</th><th class="text-end">DPP</th></tr></thead>
+<table class="ds-table ds-table-sm" style="min-width: 560px">
+<thead><tr><th>Baris pajak</th><th>Baris dasar</th><th class="text-end">DPP</th><th class="text-end">Pajak</th></tr></thead>
 <tbody>
-<tr style="background: var(--t-warning-bg)"><td>PPh 23 · INV-KS-0091</td><td>Jasa konsultan</td><td class="text-end">10.000.000</td></tr>
-<tr style="background: var(--t-warning-bg)"><td>PPh 23 · KW-0442</td><td>Sewa alat</td><td class="text-end">5.000.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>PPh 23 · INV-KS-0091</td><td>Jasa konsultan</td><td class="text-end">10.000.000</td><td class="text-end">200.000</td></tr>
+<tr style="background: var(--t-warning-bg)"><td>PPh Final · SR-2210</td><td>Sewa ruang meeting</td><td class="text-end">5.000.000</td><td class="text-end">500.000</td></tr>
 </tbody>
 </table>
-<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 6px">Vendor berbeda = 2 bukti potong = 2 baris PPh. Di jurnal Kasbank keduanya boleh digabung jadi 1 baris Utang PPh 23.</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 6px">1 baris PPh = 1 tarif = 1 bukti potong, dibulatkan sekali per baris. Meterai tidak punya tautan, artinya tidak kena pajak.</div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
-<div class="ds-stat-card"><div class="ds-stat-label">Diajukan</div><div class="ds-stat-value" style="font-size: 18px">18.630.000</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-danger)">− 300.000</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Akan dibayar</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-success)">18.330.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Diajukan</div><div class="ds-stat-value" style="font-size: 18px">16.660.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-danger)">− 700.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Akan dibayar</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-success)">15.960.000</div></div>
 </div>
-</sc-if>
-
-<sc-if value="{{isTidak}}" hint-placeholder-val="{{false}}" data-panel="hasil:tidak">
-<div class="ds-alert ds-alert-success" style="margin-bottom: 14px"><i class="bi bi-check-circle"></i><div>Tidak ada baris yang ditambahkan. cb_transaksi.valid_transaksi tetap diisi Y sebagai bukti voucher sudah diperiksa.</div></div>
-<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
-<div class="ds-stat-card"><div class="ds-stat-label">Diajukan</div><div class="ds-stat-value" style="font-size: 18px">18.630.000</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh</div><div class="ds-stat-value" style="font-size: 18px">0</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Akan dibayar</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-success)">18.630.000</div></div>
-</div>
-</sc-if>
-
-<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 14px">Saat hasil cek disimpan di sistem Pajak: baris PPh dikirim ke Auto Journal (sumber TAX), lalu cb_transaksi.valid_transaksi diisi Y supaya Kasbank Entry bisa membayar.</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 14px">Saat hasil cek disimpan di sistem Pajak: baris TAX dan dasar pajaknya ditulis ke Auto Journal, lalu cb_transaksi.valid_transaksi diisi Y supaya Kasbank Entry bisa membayar.</div>
 <div class="ds-form-footer" style="margin-top: 8px">
 <button type="button" class="ds-btn ds-btn-ghost">Batal</button>
 <button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan Hasil Cek</span></button>
 </div>
 </section>
+</sc-if>
+
+<sc-if value="{{isTidak}}" hint-placeholder-val="{{false}}" data-panel="hasil:tidak">
+<section class="ds-section" style="margin-bottom: 14px">
+<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> FPP-2026-01311 <span class="ds-section-meta"><span class="ds-badge ds-badge-warning">Belum dicek</span></span></div>
+<dl class="ds-dl" style="margin-bottom: 14px">
+<dt>Aplikasi · Tipe</dt><dd>FPP · FPP <span style="font-size: 12px; color: var(--t-text-muted)">tujuan TAX · tanpa batch</span></dd>
+<dt>ID di aplikasi FPP</dt><dd>154880</dd>
+<dt>Unit / Lokasi</dt><dd>SKGM / SKGM01</dd>
+<dt>Tgl FPP</dt><dd>22-10-2026</dd>
+<dt>Diajukan (BANK bruto)</dt><dd>1.850.000</dd>
+</dl>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-sm" style="min-width: 900px">
+<thead><tr><th>Nota (voucher_dtl_no)</th><th>Tipe</th><th>No. COA</th><th>Nama Akun</th><th>Keterangan</th><th>PPh (ditentukan Pajak)</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr></thead>
+<tbody>
+<tr><td>KW-PT-0311</td><td>ACC</td><td style="white-space: nowrap">5-330-01</td><td style="font-style: italic; color: var(--t-text-muted)">Biaya Transportasi</td><td>Parkir &amp; tol kunjungan proyek</td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">350.000</td><td class="text-end"></td></tr>
+<tr><td>INV-RM-0788</td><td>ACC</td><td style="white-space: nowrap">5-340-01</td><td style="font-style: italic; color: var(--t-text-muted)">Biaya Konsumsi Rapat</td><td>Konsumsi rapat vendor</td><td><span class="ds-badge ds-badge-neutral">Tidak kena</span></td><td class="text-end">1.500.000</td><td class="text-end"></td></tr>
+<tr><td>FPP-2026-01311</td><td>BANK</td><td>—</td><td style="font-style: italic; color: var(--t-text-muted)">dipilih Kasbank</td><td>Pembayaran FPP-2026-01311 (bruto)</td><td>—</td><td class="text-end"></td><td class="text-end">1.850.000</td></tr>
+</tbody>
+<tfoot><tr style="font-weight: 600"><td colspan="6">Total baris APP <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">1.850.000</td><td class="text-end">1.850.000</td></tr></tfoot>
+</table>
+</div>
+</section>
+<section class="ds-section">
+<div class="ds-section-title"><i class="bi bi-clipboard-check"></i> Hasil pemeriksaan</div>
+<div class="ds-alert ds-alert-success" style="margin-bottom: 14px"><i class="bi bi-check-circle"></i><div><strong>Tanpa PPh = valid tanpa baris TAX.</strong> Tidak ada baris yang ditambahkan ke aj_voucher_dtl. cb_transaksi.valid_transaksi tetap diisi Y sebagai bukti FPP sudah diperiksa, bukan terlewat.</div></div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<div class="ds-stat-card"><div class="ds-stat-label">Diajukan</div><div class="ds-stat-value" style="font-size: 18px">1.850.000</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Potongan PPh</div><div class="ds-stat-value" style="font-size: 18px">0</div></div>
+<div class="ds-stat-card"><div class="ds-stat-label">Akan dibayar</div><div class="ds-stat-value" style="font-size: 18px; color: var(--t-success)">1.850.000</div></div>
+</div>
+<div class="ds-form-footer" style="margin-top: 14px">
+<button type="button" class="ds-btn ds-btn-ghost">Batal</button>
+<button type="button" class="ds-btn ds-btn-primary"><i class="bi bi-check2"></i><span>Simpan Hasil Cek</span></button>
+</div>
+</section>
+</sc-if>
 </div>
 </div>
 </div>
@@ -180,7 +209,7 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"tema":{"editor":"enum","options":["light","dark","warm"],"default":"light"},"$preview":{"width":1440,"height":1300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"tema":{"editor":"enum","options":["light","dark","warm"],"default":"light"},"$preview":{"width":1440,"height":1500}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);

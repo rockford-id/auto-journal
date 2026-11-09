@@ -43,12 +43,12 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <nav class="main-header">
 <div class="header-left">
 <button class="btn-icon" type="button" aria-label="Toggle sidebar"><i class="bi bi-list"></i></button>
-<div class="crumb"><a href="index.html">Auto Journal</a><span class="crumb-sep">▸</span><a href="index.html">Monitor Sinkronisasi</a><span class="crumb-sep">▸</span><b>GR-2026-000123</b></div>
+<div class="crumb"><a href="index.html">Auto Journal</a><span class="crumb-sep">▸</span><a href="index.html">Monitor Sinkronisasi</a><span class="crumb-sep">▸</span><b>GR-2610-0045</b></div>
 </div>
 <div class="header-right">
 <a class="unit-picker" href="#" aria-label="Ganti Unit dan Lokasi">
 <span class="unit-pill-icon">SK</span>
-<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: JJF3</span></span>
+<span class="unit-pill-content"><span class="unit-pill-title">SKGM</span><span class="unit-pill-subtitle">Lokasi: SKGM01</span></span>
 <span class="unit-pill-switch"><i class="bi bi-arrow-left-right"></i></span>
 </a>
 <button class="btn-icon" type="button" aria-label="Notifikasi"><i class="bi bi-bell"></i></button>
@@ -61,113 +61,159 @@ a{color:var(--t-text)}a:hover{color:var(--smra-orange)}
 <div class="content-wrapper ds-content">
 <div class="ds-page-header">
 <div class="ds-page-title">
-<h1>GR-2026-000123 <span class="ds-badge ds-badge-success" style="vertical-align: middle"><i class="bi bi-lock-fill"></i> Terposting</span></h1>
-<div class="ds-page-subtitle">SIPP · GR · tujuan GL · no. bukti GL JV-2610-0412</div>
+<h1>GR-2610-0045 <span class="ds-badge ds-badge-success" style="vertical-align: middle"><i class="bi bi-lock-fill"></i> Terposting</span></h1>
+<div class="ds-page-subtitle">SIPP · GR · rute GL · batch 45120 · no. bukti GL JV-SKGM-2610-00031</div>
 </div>
 <div class="ds-page-actions">
 <a href="index.html" class="ds-btn ds-btn-ghost"><i class="bi bi-arrow-left"></i><span>Kembali</span></a>
 <div class="ds-btn-bar">
-<button class="ds-btn" type="button" disabled data-ds-tooltip="Jurnal sudah diposting, tidak bisa diubah"><i class="bi bi-pencil"></i><span>Ubah</span></button>
-<button class="ds-btn ds-btn-primary" type="button"><i class="bi bi-arrow-counterclockwise"></i><span>Buat Jurnal Balik</span></button>
+<button class="ds-btn" type="button" disabled data-ds-tooltip="Batch sudah diposting, voucher tidak bisa diubah"><i class="bi bi-pencil"></i><span>Ubah</span></button>
+<button class="ds-btn ds-btn-secondary" type="button"><i class="bi bi-arrow-counterclockwise"></i><span>Cara Koreksi</span></button>
 </div>
 </div>
 </div>
 
-<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-lock"></i><div><strong>Jurnal terkunci.</strong> Setelah sync_status = Y, header dan baris jurnal tidak bisa diubah, dihapus, atau ditambah. Koreksi dilakukan lewat jurnal balik + jurnal baru.</div></div>
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-lock"></i><div><strong>Terkunci bersama batch-nya.</strong> Setelah batch 45120 berstatus Y, batch beserta voucher, baris subledger, dasar pajak dan rinciannya tidak bisa diubah, dihapus, atau ditambah. Yang masih boleh: kolom sync_* dan pengisian jurnal_dtl_ref oleh job.</div></div>
 
 
 <div class="row g-3" style="margin-bottom: 14px">
-<div class="col-12 col-lg-7">
+<div class="col-12 col-lg-6">
 <section class="ds-section" style="height: 100%">
-<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> Header jurnal <span class="ds-section-meta">aj_jurnal_hdr · voucher dari aj_voucher</span></div>
+<div class="ds-section-title"><i class="bi bi-file-earmark-text"></i> Voucher <span class="ds-section-meta">aj_voucher · dari SIPP</span></div>
 <dl class="ds-dl">
-<dt>Voucher pengirim</dt><dd>GR-2026-000123 (voucher_no) · 88231 (voucher_key) · SIPP · GR</dd>
-<dt>No. Reff</dt><dd>GR-2026-000123</dd>
-<dt>Tgl / Tahun Reff</dt><dd>15-10-2026 · 2026</dd>
-<dt>No. Bukti (GL)</dt><dd>JV-2610-0412</dd>
-<dt>Tgl / Tahun Bukti</dt><dd>15-10-2026 · 2026 <span style="font-size: 12px; color: var(--t-text-muted)">diisi bersamaan dengan status Y</span></dd>
-<dt>Unit (kd_unit)</dt><dd>SKGM</dd>
-<dt>Lokasi (kd_lokasi)</dt><dd>JJF3</dd>
-<dt>Kode internal</dt><dd>[kd_mst_unit] · [kd_sub_unit]</dd>
-<dt>Bank</dt><dd>—</dd>
+<dt>No. voucher (voucher_no)</dt><dd>GR-2610-0045</dd>
+<dt>ID di SIPP (voucher_key)</dt><dd>88231</dd>
+<dt>Aplikasi · Tipe</dt><dd>SIPP · GR <span style="font-size: 12px; color: var(--t-text-muted)">tujuan GL · fg_ringkas Y</span></dd>
+<dt>Tgl / Tahun Reff</dt><dd>20-10-2026 · 2026</dd>
+<dt>Unit / Lokasi</dt><dd>SKGM / SKGM01</dd>
+<dt>Batch (jurnal_hdr_id)</dt><dd><a href="index.html">45120</a> <span style="font-size: 12px; color: var(--t-text-muted)">diisi SIPP saat kirim</span></dd>
 </dl>
 </section>
 </div>
-<div class="col-12 col-lg-5">
+<div class="col-12 col-lg-6">
 <section class="ds-section" style="height: 100%">
-<div class="ds-section-title"><i class="bi bi-arrow-repeat"></i> Sinkronisasi</div>
+<div class="ds-section-title"><i class="bi bi-collection"></i> Batch jurnal GL 45120 <span class="ds-section-meta">aj_jurnal_hdr</span></div>
 <dl class="ds-dl">
-<dt>Status</dt><dd><span class="ds-badge ds-badge-success">Y · Terposting</span></dd>
-<dt>Gagal sebelumnya</dt><dd>1× (sync_error_count)</dd>
-<dt>Error terakhir</dt><dd>15-10-2026 16:40 · GL: periode 10/2026 unit SKGM belum dibuka</dd>
-<dt>Berhasil sync</dt><dd>15-10-2026 17:02 (sync_tgl)</dd>
+<dt>Keterangan header</dt><dd>Penerimaan barang SIPP 20 Okt 2026</dd>
+<dt>Tgl / Tahun Bukti</dt><dd>20-10-2026 · 2026 <span style="font-size: 12px; color: var(--t-text-muted)">diisi SIPP</span></dd>
+<dt>No. Bukti GL</dt><dd>JV-SKGM-2610-00031 <span style="font-size: 12px; color: var(--t-text-muted)">diisi job sync bersamaan dengan status Y</span></dd>
+<dt>Isi batch</dt><dd>GR-2610-0045, GR-2610-0046 (2 voucher)</dd>
+<dt>Status sync</dt><dd><span class="ds-badge ds-badge-success">Y · Terposting</span> 21-10-2026 09:02</dd>
+<dt>Gagal sebelumnya</dt><dd>1× · 20-10-2026 18:05 · GL: periode 10/2026 unit SKGM belum dibuka</dd>
 </dl>
-<div style="margin-top: 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
-<div class="ds-stat-card"><div class="ds-stat-label">Debit</div><div class="ds-stat-value" style="font-size: 16px">22.200.000</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Kredit</div><div class="ds-stat-value" style="font-size: 16px">22.200.000</div></div>
-<div class="ds-stat-card"><div class="ds-stat-label">Selisih</div><div class="ds-stat-value" style="font-size: 16px; color: var(--t-success)">0 <i class="bi bi-check-circle-fill"></i></div></div>
-</div>
 </section>
 </div>
 </div>
 
 <section class="ds-section">
 <ul class="ds-tabs" role="tablist" style="margin-bottom: 14px">
-<li><button type="button" class="ds-tabs-link" data-tab="detail:baris" data-default="1">Baris Jurnal · 4</button></li>
-<li><button type="button" class="ds-tabs-link" data-tab="detail:rincian">Rincian Subledger · 4 baris / 6 rincian</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="detail:baris" data-default="1">Baris Subledger · 4</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="detail:gl">Jurnal GL Batch · 4 baris ringkas</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="detail:gln">Jika Tidak Diringkas · 7 baris</button></li>
+<li><button type="button" class="ds-tabs-link" data-tab="detail:rincian">Rincian per PO · 6</button></li>
 <li><button type="button" class="ds-tabs-link" data-tab="detail:dasar">Dasar Pajak · 2</button></li>
 </ul>
 
 <div data-panel="detail:baris">
+<div style="font-size: 13px; color: var(--t-text-muted); margin-bottom: 10px">aj_voucher_dtl voucher ini, dikirim SIPP. Akun dan dimensi hanya ada di sini; persediaan dipecah per proyek.</div>
 <div style="overflow-x: auto">
 <table class="ds-table ds-table-striped" style="min-width: 1050px">
 <thead>
-<tr><th>#</th><th>Tipe</th><th>Sub Tipe</th><th>No. COA</th><th>D/K</th><th>Mata Uang</th><th class="text-end">Kurs</th><th class="text-end">Jumlah Ori</th><th class="text-end">Jumlah</th><th>Proyek</th><th>Dept</th><th>Keterangan</th></tr>
+<tr><th>#</th><th>Tipe</th><th>Sub Tipe</th><th class="text-end">Tarif</th><th>No. COA</th><th>Nama Akun</th><th>Proyek</th><th>Keterangan (dari SIPP)</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">12.000.000</td><td class="text-end">12.000.000</td><td>Proyek X</td><td>—</td><td>Persediaan material</td></tr>
-<tr><td>2</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>1-130-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">8.000.000</td><td class="text-end">8.000.000</td><td>Proyek Y</td><td>—</td><td>Persediaan material</td></tr>
-<tr><td>3</td><td><span class="ds-badge ds-badge-info">PPN</span></td><td>12</td><td>1-150-01</td><td>D</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">2.200.000</td><td class="text-end">2.200.000</td><td>—</td><td>—</td><td>PPN masukan GR</td></tr>
-<tr><td>4</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td>2-110-05</td><td>K</td><td>IDR</td><td class="text-end">1,00</td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td><td>—</td><td>—</td><td>Hutang GR belum ditagih</td></tr>
+<tr><td>1</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td class="text-end">0</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-X</td><td>Persediaan material PO-2610-0450</td><td class="text-end">12.000.000</td><td class="text-end"></td></tr>
+<tr><td>2</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td class="text-end">0</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-Y</td><td>Persediaan material PO-2610-0457</td><td class="text-end">8.000.000</td><td class="text-end"></td></tr>
+<tr><td>3</td><td><span class="ds-badge ds-badge-info">PPN</span></td><td>12</td><td class="text-end">12</td><td style="white-space: nowrap">1-150-01</td><td style="font-style: italic; color: var(--t-text-muted)">PPN Masukan</td><td>—</td><td>PPN Masukan GR-2610-0045</td><td class="text-end">2.200.000</td><td class="text-end"></td></tr>
+<tr><td>4</td><td><span class="ds-badge ds-badge-neutral">ACC</span></td><td>—</td><td class="text-end">0</td><td style="white-space: nowrap">2-110-01</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang Usaha</td><td>—</td><td>Hutang usaha GR-2610-0045</td><td class="text-end"></td><td class="text-end">22.200.000</td></tr>
 </tbody>
 <tfoot>
-<tr style="font-weight: 600"><td colspan="8">Total Debit / Kredit</td><td class="text-end">22.200.000 / 22.200.000</td><td colspan="3"><span class="ds-badge ds-badge-success">Balance</span></td></tr>
+<tr style="font-weight: 600"><td colspan="8">Total <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td></tr>
+</tfoot>
+</table>
+</div>
+</div>
+
+<div data-panel="detail:gl">
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-calculator"></i><div><strong>Baris GL tidak disimpan di Fintegra.</strong> Dibentuk dari aj_voucher_dtl semua voucher di batch 45120 lewat view baris jurnal GL. fg_ringkas = Y, jadi baris dengan tipe, sub tipe, D/K, akun dan dimensi yang sama dijumlah; keterangannya "&lt;tipe voucher&gt; · &lt;sub tipe, atau tipe jika sub tipe kosong&gt;".</div></div>
+<div style="font-size: 13px; margin-bottom: 10px"><strong>JV-SKGM-2610-00031</strong> · 20-10-2026 · Penerimaan barang SIPP 20 Okt 2026</div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 1050px">
+<thead>
+<tr><th>ID Baris GL</th><th>Tipe</th><th>Sub Tipe</th><th>No. COA</th><th>Nama Akun</th><th>Proyek</th><th>Keterangan (dibentuk sistem)</th><th>Dari aj_voucher_dtl</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr>
+</thead>
+<tbody>
+<tr><td>774501</td><td>ACC</td><td>—</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-X</td><td>GR · Akun</td><td>0045 #1 + 0046 #1</td><td class="text-end">17.000.000</td><td class="text-end"></td></tr>
+<tr><td>774502</td><td>ACC</td><td>—</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-Y</td><td>GR · Akun</td><td>0045 #2</td><td class="text-end">8.000.000</td><td class="text-end"></td></tr>
+<tr><td>774503</td><td>PPN</td><td>12</td><td style="white-space: nowrap">1-150-01</td><td style="font-style: italic; color: var(--t-text-muted)">PPN Masukan</td><td>—</td><td>GR · PPN 12%</td><td>0045 #3 + 0046 #2</td><td class="text-end">2.750.000</td><td class="text-end"></td></tr>
+<tr><td>774504</td><td>ACC</td><td>—</td><td style="white-space: nowrap">2-110-01</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang Usaha</td><td>—</td><td>GR · Akun</td><td>0045 #4 + 0046 #3</td><td class="text-end"></td><td class="text-end">27.750.000</td></tr>
+</tbody>
+<tfoot>
+<tr style="font-weight: 600"><td colspan="8">Total <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">27.750.000</td><td class="text-end">27.750.000</td></tr>
+</tfoot>
+</table>
+</div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Persediaan PRJ-X dan PRJ-Y tetap 2 baris karena proyeknya beda. Baris ACC semuanya berketerangan "GR · Akun" (disepakati sementara). ID baris GL ditulis balik ke aj_voucher_sl.jurnal_dtl_ref saat posting.</div>
+</div>
+
+<div data-panel="detail:gln">
+<div class="ds-alert ds-alert-warning" role="note" style="margin-bottom: 12px"><i class="bi bi-eye"></i><div><strong>Perbandingan saja.</strong> Seandainya fg_ringkas SIPP · GR = N: 1 baris aj_voucher_dtl = 1 baris GL, keterangan dari SIPP. Batch 45120 sebenarnya diposting ringkas.</div></div>
+<div style="overflow-x: auto">
+<table class="ds-table ds-table-striped" style="min-width: 1050px">
+<thead>
+<tr><th>#</th><th>Voucher</th><th>Tipe</th><th>Sub Tipe</th><th>No. COA</th><th>Nama Akun</th><th>Proyek</th><th>Keterangan (dari SIPP)</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>GR-2610-0045</td><td>ACC</td><td>—</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-X</td><td>Persediaan material PO-2610-0450</td><td class="text-end">12.000.000</td><td class="text-end"></td></tr>
+<tr><td>2</td><td>GR-2610-0046</td><td>ACC</td><td>—</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-X</td><td>Persediaan material PO-2610-0461</td><td class="text-end">5.000.000</td><td class="text-end"></td></tr>
+<tr><td>3</td><td>GR-2610-0045</td><td>ACC</td><td>—</td><td style="white-space: nowrap">1-130-01</td><td style="font-style: italic; color: var(--t-text-muted)">Persediaan Material</td><td>PRJ-Y</td><td>Persediaan material PO-2610-0457</td><td class="text-end">8.000.000</td><td class="text-end"></td></tr>
+<tr><td>4</td><td>GR-2610-0045</td><td>PPN</td><td>12</td><td style="white-space: nowrap">1-150-01</td><td style="font-style: italic; color: var(--t-text-muted)">PPN Masukan</td><td>—</td><td>PPN Masukan GR-2610-0045</td><td class="text-end">2.200.000</td><td class="text-end"></td></tr>
+<tr><td>5</td><td>GR-2610-0046</td><td>PPN</td><td>12</td><td style="white-space: nowrap">1-150-01</td><td style="font-style: italic; color: var(--t-text-muted)">PPN Masukan</td><td>—</td><td>PPN Masukan GR-2610-0046</td><td class="text-end">550.000</td><td class="text-end"></td></tr>
+<tr><td>6</td><td>GR-2610-0045</td><td>ACC</td><td>—</td><td style="white-space: nowrap">2-110-01</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang Usaha</td><td>—</td><td>Hutang usaha GR-2610-0045</td><td class="text-end"></td><td class="text-end">22.200.000</td></tr>
+<tr><td>7</td><td>GR-2610-0046</td><td>ACC</td><td>—</td><td style="white-space: nowrap">2-110-01</td><td style="font-style: italic; color: var(--t-text-muted)">Hutang Usaha</td><td>—</td><td>Hutang usaha GR-2610-0046</td><td class="text-end"></td><td class="text-end">5.550.000</td></tr>
+</tbody>
+<tfoot>
+<tr style="font-weight: 600"><td colspan="8">Total <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">27.750.000</td><td class="text-end">27.750.000</td></tr>
 </tfoot>
 </table>
 </div>
 </div>
 
 <div data-panel="detail:rincian">
-<div class="ds-alert ds-alert-success" role="status" style="margin-bottom: 12px"><i class="bi bi-check-circle"></i><div><strong>Tie-out cocok.</strong> Total rincian (aj_voucher_sl) per baris aj_voucher_dtl = nilai baris itu, dan total rincian yang tertaut ke tiap baris jurnal = nilai baris jurnal itu (dijumlah bertanda, D + / K −). Keempat baris memakai voucher_dtl_no / voucher_dtl_key yang sama dengan header GR; dibedakan oleh tipe, D/K, akun dan proyek.</div></div>
+<div class="ds-alert ds-alert-success" role="status" style="margin-bottom: 12px"><i class="bi bi-check-circle"></i><div><strong>Tie-out cocok.</strong> Total rincian (aj_voucher_sl) per baris subledger = nilai baris itu, dijumlah bertanda (D +, K −). Rincian yang barisnya diringkas menunjuk ke ID baris GL yang sama, jadi detail per PO tetap terlacak.</div></div>
 <div style="overflow-x: auto">
 <table class="ds-table" style="min-width: 1050px">
 <thead>
-<tr><th>Baris aj_voucher_dtl / Rincian aj_voucher_sl</th><th>No · Key</th><th>Tipe</th><th>D/K</th><th>Proyek</th><th class="text-end">Jumlah</th><th>Tertaut ke Jurnal</th><th>Tie-out</th></tr>
+<tr><th>Baris subledger / Rincian</th><th>No. PO (voucher_sl_no)</th><th>ID PO (voucher_sl_key)</th><th class="text-end">DPP</th><th>Baris GL (jurnal_dtl_ref)</th><th class="text-end">Debet</th><th class="text-end">Kredit</th></tr>
 </thead>
 <tbody>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Persediaan Proyek X</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>D</td><td>Proyek X</td><td class="text-end">12.000.000</td><td>Baris #1 · 1-130-01</td><td><span class="ds-badge ds-badge-success">12.000.000 = 12.000.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PO-2026-0450 · 4501</td><td>ACC</td><td>D</td><td>Proyek X</td><td class="text-end">12.000.000</td><td>jurnal_dtl_id → #1</td><td></td></tr>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Persediaan Proyek Y</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>D</td><td>Proyek Y</td><td class="text-end">8.000.000</td><td>Baris #2 · 1-130-01</td><td><span class="ds-badge ds-badge-success">8.000.000 = 8.000.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PO-2026-0457 · 4508</td><td>ACC</td><td>D</td><td>Proyek Y</td><td class="text-end">8.000.000</td><td>jurnal_dtl_id → #2</td><td></td></tr>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>PPN 12</td><td>GR-2026-000123 · 88231</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">2.200.000</td><td>Baris #3 · 1-150-01</td><td><span class="ds-badge ds-badge-success">2.200.000 = 2.200.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450 · DPP 11.000.000</td><td>PO-2026-0450 · 4501</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">1.320.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457 · DPP 7.333.333</td><td>PO-2026-0457 · 4508</td><td>PPN</td><td>D</td><td>—</td><td class="text-end">880.000</td><td>jurnal_dtl_id → #3</td><td></td></tr>
-<tr style="font-weight: 600; background: var(--t-surf-2)"><td>Hutang GR</td><td>GR-2026-000123 · 88231</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">22.200.000</td><td>Baris #4 · 2-110-05</td><td><span class="ds-badge ds-badge-success">22.200.000 = 22.200.000</span></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0450</td><td>PO-2026-0450 · 4501</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">13.320.000</td><td>jurnal_dtl_id → #4</td><td></td></tr>
-<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PO-2026-0457</td><td>PO-2026-0457 · 4508</td><td>ACC</td><td>K</td><td>—</td><td class="text-end">8.880.000</td><td>jurnal_dtl_id → #4</td><td></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>#1 ACC 1-130-01 · PRJ-X</td><td></td><td></td><td></td><td></td><td class="text-end">12.000.000</td><td class="text-end"></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> Semen &amp; besi</td><td>PO-2610-0450</td><td>5501</td><td class="text-end">0</td><td>774501</td><td class="text-end">12.000.000</td><td class="text-end"></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>#2 ACC 1-130-01 · PRJ-Y</td><td></td><td></td><td></td><td></td><td class="text-end">8.000.000</td><td class="text-end"></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> Keramik</td><td>PO-2610-0457</td><td>5502</td><td class="text-end">0</td><td>774502</td><td class="text-end">8.000.000</td><td class="text-end"></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>#3 PPN 12 · 1-150-01</td><td></td><td></td><td></td><td></td><td class="text-end">2.200.000</td><td class="text-end"></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PPN PO-2610-0450</td><td>PO-2610-0450</td><td>5501</td><td class="text-end">11.000.000</td><td>774503</td><td class="text-end">1.320.000</td><td class="text-end"></td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> PPN PO-2610-0457</td><td>PO-2610-0457</td><td>5502</td><td class="text-end">7.333.333</td><td>774503</td><td class="text-end">880.000</td><td class="text-end"></td></tr>
+<tr style="font-weight: 600; background: var(--t-surf-2)"><td>#4 ACC 2-110-01 · Hutang</td><td></td><td></td><td></td><td></td><td class="text-end"></td><td class="text-end">22.200.000</td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> Hutang PO-2610-0450</td><td>PO-2610-0450</td><td>5501</td><td class="text-end">0</td><td>774504</td><td class="text-end"></td><td class="text-end">13.320.000</td></tr>
+<tr><td style="padding-left: 28px"><i class="bi bi-arrow-return-right" style="color: var(--t-text-faint)"></i> Hutang PO-2610-0457</td><td>PO-2610-0457</td><td>5502</td><td class="text-end">0</td><td>774504</td><td class="text-end"></td><td class="text-end">8.880.000</td></tr>
 </tbody>
+<tfoot>
+<tr style="font-weight: 600"><td colspan="5">Total rincian <span class="ds-badge ds-badge-success">Balance</span></td><td class="text-end">22.200.000</td><td class="text-end">22.200.000</td></tr>
+</tfoot>
 </table>
 </div>
+<div style="font-size: 12px; color: var(--t-text-muted); margin-top: 8px">Baris GL 774501, 774503 dan 774504 juga menampung rincian GR-2610-0046 (PO-2610-0461). jurnal_dtl_ref ditulis job dalam transaksi yang sama dengan status Y.</div>
 </div>
 
 <div data-panel="detail:dasar">
-<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-calculator"></i><div><strong>Dasar pajak (aj_voucher_dtl_pajak).</strong> DPP disimpan per baris dasar dan tidak dijurnal. PPN 12% dengan DPP nilai lain 11/12.</div></div>
+<div class="ds-alert ds-alert-info" role="status" style="margin-bottom: 12px"><i class="bi bi-calculator"></i><div><strong>Dasar pajak (aj_voucher_dtl_pajak).</strong> DPP disimpan per baris dasar dan tidak dijurnal. PPN 12% dengan DPP nilai lain 11/12, dibulatkan sekali per baris pajak.</div></div>
 <div style="overflow-x: auto">
 <table class="ds-table" style="min-width: 760px">
 <thead><tr><th>Baris pajak</th><th>Baris dasar</th><th class="text-end">Jumlah dasar</th><th class="text-end">DPP</th></tr></thead>
 <tbody>
-<tr><td>PPN 12 · baris #3</td><td>Persediaan Proyek X · baris #1</td><td class="text-end">12.000.000</td><td class="text-end">11.000.000</td></tr>
-<tr><td>PPN 12 · baris #3</td><td>Persediaan Proyek Y · baris #2</td><td class="text-end">8.000.000</td><td class="text-end">7.333.333</td></tr>
+<tr><td>#3 PPN 12</td><td>#1 Persediaan PRJ-X</td><td class="text-end">12.000.000</td><td class="text-end">11.000.000</td></tr>
+<tr><td>#3 PPN 12</td><td>#2 Persediaan PRJ-Y</td><td class="text-end">8.000.000</td><td class="text-end">7.333.333</td></tr>
 </tbody>
 <tfoot><tr style="font-weight: 600"><td colspan="3">Σ DPP × 12% = 2.199.999,96 → 2.200.000 <span class="ds-badge ds-badge-success">cocok ±1</span></td><td class="text-end">18.333.333</td></tr></tfoot>
 </table>

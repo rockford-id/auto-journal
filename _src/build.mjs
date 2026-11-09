@@ -18,7 +18,7 @@ const PAGES = {
 };
 
 // Nilai awal untuk hole teks yang tersisa (diperbarui mockup.js saat filter diklik)
-const DEFAULTS = { shown: '8', total: '456.880.000' };
+const DEFAULTS = { shown: '8', total: '59.650.000', totalBatch: '118.415.000' };
 
 const ASSET_URLS = {
     '/_blob/d4be07ed8fbcf787a3e693a936195e05': 'assets/portal-ui.css',
